@@ -1,0 +1,51 @@
+h1{
+    color: #3C486B;
+    text-align: left;
+    font-size: 40px ;
+}
+
+.feature{
+    background-color: aliceblue;
+}
+
+.WhatsApp{
+    border-radius: 20px;
+    background-color: #636D89;
+    width:250px;
+    height: 88px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.quest{
+    background-color: #F0F0F0;
+    border-radius: 20px;
+    text-align: left;
+    width: 824px;
+    height: 300px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-left: 30px;
+}
+.bantu{
+    color: #3C486B;
+    font-size: 24px;
+    text-align: left;
+    margin-left: 30px;
+}
+.bantuan{
+    margin-left: 30px;
+    margin-right: 50px;
+  
+}
+.konten{
+    font-family: 'Philosopher', sans-serif;
+   font-style: normal;
+    color: black;
+    font-size: 20px;
+}
+
+.icon{
+    text-align: right;
+   margin-top: -20px;
+   position: sticky;
+}
