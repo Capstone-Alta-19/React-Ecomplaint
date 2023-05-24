@@ -3,7 +3,7 @@ import "./homePage.css";
 import { USERS_INDO } from "./constant";
 import { RightOutlined } from "@ant-design/icons";
 import image from "./assets/img/CallWA.png";
-import Gap from "../../components/gap/Gap";
+// import Gap from "../../components/gap/Gap";
 
 const HomePage = () => {
   return (
@@ -12,10 +12,10 @@ const HomePage = () => {
       <div className="WhatsApp">
         <img src={image} height={50} width={250} />
       </div>
-      <Gap height={20} />
+      {/* <Gap height={20} /> */}
       <div className="quest">
         <h2 className="bantu">Kami akan membantu</h2>
-        <Gap height={10} />
+        {/* <Gap height={10} /> */}
         {USERS_INDO.map((teks, index) => (
           <div className="bantuan" key={index}>
             <a className="konten">{teks.teks1}</a>
