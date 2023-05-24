@@ -1,0 +1,15 @@
+body {
+  margin: 50px;
+  background-color: aliceblue;
+}
+
+.homePage .section .content-1 .ant-typography {
+  color: rgb(67, 67, 131);
+  text-align: right;
+}
+
+.homePage .section .content-2 .ant-typography {
+  color: rgb(67, 67, 131);
+  text-align: left;
+}
+
