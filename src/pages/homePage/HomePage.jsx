@@ -2,7 +2,6 @@ import React from "react";
 import "./homePage.css";
 import { Phone } from "../../assets";
 import Gap from "../../components/gap/Gap";
-import HomePage2 from "./syafi/HomePage2";
 
 const HomePage = () => {
   return (
