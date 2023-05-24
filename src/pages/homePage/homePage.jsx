@@ -8,7 +8,7 @@ import image from "./assets/img/CallWA.png";
 const HomePage = () => {
   return (
     <>
-      <h1>Perlu Bantuan ?</h1>
+      <h1 className="about-bantuan">Perlu Bantuan ?</h1>
       <div className="WhatsApp">
         <img src={image} height={50} width={250} />
       </div>
