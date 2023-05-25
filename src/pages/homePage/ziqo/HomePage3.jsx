@@ -1,7 +1,8 @@
 import { Row } from "antd";
 import React from "react";
 import "./HomePage3.css";
-import complain from "../../assets";
+import complain from "../../../assets";
+
 
 const HomePage3 = () => {
   return (
