@@ -4,6 +4,7 @@ import { IconEcomplain, Phone } from "../../assets";
 import Gap from "../../components/gap/Gap";
 import HomePage2 from "./syafi/HomePage2";
 import HomePage3 from "./ziqo/HomePage3";
+import HomePage4 from "./abi/HomePage4";
 
 const HomePage = () => {
   return (
@@ -40,6 +41,11 @@ const HomePage = () => {
         <div>
           <HomePage3 />
         </div>
+        <Gap height={175} />
+        <div>
+          <HomePage4 />
+        </div>
+        <Gap height={200} />
       </div>
     </>
   );

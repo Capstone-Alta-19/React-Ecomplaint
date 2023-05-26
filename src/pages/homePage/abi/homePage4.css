@@ -1,0 +1,13 @@
+.homePage .section .content-1 .ant-typography {
+  color: rgb(67, 67, 131);
+  text-align: right;
+  font-family: PoppinsBold;
+}
+
+/* Paragrap pakai Poppins, Header pakai PoppinsBold */
+
+.homePage .section .content-2 .ant-typography {
+  color: rgb(67, 67, 131);
+  text-align: left;
+  font-family: PoppinsBold;
+}
