@@ -7,6 +7,7 @@ import WAIcon from "./images/wa.png";
 import AppStore from "./images/appstore.png";
 import GmailIcon from "./images/gmail.png";
 import EcomplainzWhite from "./images/EcomplainzWhite.svg";
+import Complain from "./images/komplain.png";
 
 export {
   Phone,
@@ -18,4 +19,5 @@ export {
   AppStore,
   GmailIcon,
   EcomplainzWhite,
+  Complain,
 };

@@ -3,6 +3,7 @@ import "./homePage.css";
 import { IconEcomplain, Phone } from "../../assets";
 import Gap from "../../components/gap/Gap";
 import HomePage2 from "./syafi/HomePage2";
+import HomePage3 from "./ziqo/HomePage3";
 
 const HomePage = () => {
   return (
@@ -34,6 +35,10 @@ const HomePage = () => {
         </div>
         <div className="homepage2-content">
           <HomePage2 />
+        </div>
+        <Gap height={150} />
+        <div>
+          <HomePage3 />
         </div>
       </div>
     </>
