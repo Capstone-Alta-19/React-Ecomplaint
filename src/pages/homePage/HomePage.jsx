@@ -2,6 +2,7 @@ import React from "react";
 import "./homePage.css";
 import { IconEcomplain, Phone } from "../../assets";
 import Gap from "../../components/gap/Gap";
+import HomePage2 from "./syafi/HomePage2";
 
 const HomePage = () => {
   return (
@@ -24,15 +25,15 @@ const HomePage = () => {
                 memakan waktu <br /> lama dan membingungkan
               </p>
             </div>
-            <Gap height={50} />
+            <Gap height={30} />
             <button>Download Now</button>
           </div>
           <div className="homepageImage">
             <img src={Phone} alt="EComplain App" />
           </div>
         </div>
-        <div>
-          <p>Hello</p>
+        <div className="homepage2-content">
+          <HomePage2 />
         </div>
       </div>
     </>

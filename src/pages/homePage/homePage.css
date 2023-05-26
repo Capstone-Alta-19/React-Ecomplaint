@@ -40,7 +40,7 @@
   font-family: Poppins;
   font-weight: bold;
   line-height: 20px;
-  padding-top: 25px;
+  padding-top: 20px;
 }
 
 .homepageImage {
@@ -53,4 +53,10 @@
   height: auto;
   position: relative;
   right: 10rem;
+}
+
+.homepage2-content {
+  display: grid;
+  justify-content: center;
+  padding-top: 5rem;
 }
