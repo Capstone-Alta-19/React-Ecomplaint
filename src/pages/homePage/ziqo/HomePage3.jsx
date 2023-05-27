@@ -1,7 +1,7 @@
 import { Row } from "antd";
 import React from "react";
 import "./HomePage3.css";
-import complain from "../../../assets";
+import {verif,verif2,email,isiform} from "../../../assets";
 
 
 const HomePage3 = () => {
@@ -23,8 +23,11 @@ const HomePage3 = () => {
         </div>
 
       </Row>
-      <Row align="center">
-       <img src={complain} alt="" />
+      <Row align="center" className="img-row">
+       <img src={verif} alt="" />
+       <img src={isiform} alt="" />
+       <img src={verif2} alt="" />
+       <img src={email} alt="" />
       </Row>
     </div>
   );
