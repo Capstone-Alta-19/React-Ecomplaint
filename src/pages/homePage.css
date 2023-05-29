@@ -1,5 +1,5 @@
 body {
-  margin: 50px;
+  margin: 5rem 10rem;
   background-color: aliceblue;
 }
 
@@ -13,3 +13,12 @@ body {
   text-align: left;
 }
 
+.homePage .content-1 .ant-typography .ant-typography-title,
+.homePage .content-2 .ant-typography .ant-typography-title {
+  font-family: PoppinsBold;
+}
+
+.homePage .content-1 .ant-typography .ant-typography-paragraph,
+.homePage .content-2 .ant-typography .ant-typography-paragraph {
+  font-family: Poppins;
+}
