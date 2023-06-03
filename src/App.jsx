@@ -1,10 +1,10 @@
 import "./App.css";
-import HomePage from "./pages/homePage/homePage";
+import RouteManagement from "./router/RouteManagement";
 
 function App() {
   return (
     <>
-      <HomePage />
+      <RouteManagement />
     </>
   );
 }
