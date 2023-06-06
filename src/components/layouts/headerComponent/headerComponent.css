@@ -9,16 +9,11 @@
 }
 
 .headerLayout {
-  padding: 2rem 7rem;
+  padding: 1rem 7rem;
 }
 
-.headerContent {
-  display: flex;
-  justify-content: space-between;
-}
-
-.headerContent > img {
-  width: 18%;
+.LogoImage {
+  width: 35%;
   height: auto;
 }
 
@@ -26,7 +21,6 @@
   display: flex;
   gap: 4rem;
   padding: 1.5rem 10rem 0 1.5rem;
-  text-align: center;
   font-weight: 600;
 }
 
