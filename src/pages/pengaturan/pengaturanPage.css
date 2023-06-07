@@ -1,0 +1,20 @@
+.container-center {
+    background-color: #636D89;
+    padding: 20px 10px 2px 10px;
+    margin: 12px 24px 12px 24px;
+    position: absolute;
+    border-radius: 10px;
+    /* top: 10%;
+    left: 30%; */
+    
+   
+}
+.gantipassword{
+    color: #F0F0F0;
+    font-size: 18px;
+    margin-left: 12px;
+}
+
+.ant-form-item-label>label {
+    color: #F0F0F0 !important;
+}

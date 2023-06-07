@@ -1,4 +1,12 @@
 
+import React from "react";
+// import LoadingComponent from "../components/loadingComponent/LoadingComponent";
+import { Routes, Route } from "react-router-dom";
+import HomePage from "../pages/homePage/homePage";
+import PengaturanPage from "../pages/pengaturan/pengaturanPage";
+
+
+
 import React  from "react";
 import { Route, Routes,  } from "react-router-dom";
 import HomePage3 from "../pages/homePage/ziqo/HomePage3";
@@ -47,7 +55,7 @@ const RouteManagement = () => {
             <Routes>
             
             <Route path="/dashboard-overview" element={<DetailKomplain />} />
-            
+             <Route path="/pengaturan" element={<PengaturanPage />} /> 
         
               <Route path="/dashboard" element={<DashboardAdmin />} />
               <Route path="/laporan" element={<LaporanAdmin />} />
@@ -59,6 +67,7 @@ const RouteManagement = () => {
         )}
       </Suspense>
     </>
+
 
   );
 };
