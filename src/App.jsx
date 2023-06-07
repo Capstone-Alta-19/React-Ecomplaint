@@ -1,17 +1,15 @@
-import { useState } from 'react'
 
-import './App.css'
+import React from "react";
+import RouteManagement from "./router/RouteManagement";
 
-import RouteManagement from './router/RouteManagement'
 
-function App() {
-  
-
+const App = () => {
   return (
     <>
-     <RouteManagement></RouteManagement>
-    </>
-  )
-}
+      <RouteManagement />
 
-export default App
+    </>
+  );
+};
+
+export default App;
