@@ -1,12 +1,17 @@
-import "./App.css";
+
+
+import React from "react";
 import RouteManagement from "./router/RouteManagement";
 
-function App() {
+
+const App = () => {
   return (
     <>
       <RouteManagement />
+
     </>
   );
-}
+};
+
 
 export default App;
