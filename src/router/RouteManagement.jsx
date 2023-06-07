@@ -1,3 +1,11 @@
+
+import React  from "react";
+import { Route, Routes,  } from "react-router-dom";
+import HomePage3 from "../pages/homePage/ziqo/HomePage3";
+import DetailKomplain from "../pages/detail komplain/detailKomplain";
+   
+        
+     
 import React, { Suspense, useEffect } from "react";
 import LoadingComponent from "../components/loadingComponent/LoadingComponent";
 import { Routes, Route, useNavigate } from "react-router-dom";
@@ -37,6 +45,10 @@ const RouteManagement = () => {
         ) : (
           <LayoutComponentAdmin>
             <Routes>
+            
+            <Route path="/dashboard-overview" element={<DetailKomplain />} />
+            
+        
               <Route path="/dashboard" element={<DashboardAdmin />} />
               <Route path="/laporan" element={<LaporanAdmin />} />
               <Route path="/berita" element={<BeritaAdmin />} />
@@ -47,6 +59,7 @@ const RouteManagement = () => {
         )}
       </Suspense>
     </>
+
   );
 };
 
