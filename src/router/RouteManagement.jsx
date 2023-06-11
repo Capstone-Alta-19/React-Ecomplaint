@@ -1,15 +1,11 @@
 
-import React from "react";
-// import LoadingComponent from "../components/loadingComponent/LoadingComponent";
-import { Routes, Route } from "react-router-dom";
 import HomePage from "../pages/homePage/homePage";
 import PengaturanPage from "../pages/pengaturan/pengaturanPage";
 
 
 
-import React  from "react";
-import { Route, Routes,  } from "react-router-dom";
-import HomePage3 from "../pages/homePage/ziqo/HomePage3";
+
+
 import DetailKomplain from "../pages/detail komplain/detailKomplain";
    
         
@@ -17,7 +13,7 @@ import DetailKomplain from "../pages/detail komplain/detailKomplain";
 import React, { Suspense, useEffect } from "react";
 import LoadingComponent from "../components/loadingComponent/LoadingComponent";
 import { Routes, Route, useNavigate } from "react-router-dom";
-import HomePage from "../pages/homePage/HomePage";
+
 import LayoutComponent from "../components/layouts/LayoutComponent";
 import DashboardAdmin from "../pages/dashboardAdmin/DashboardAdmin";
 import AdminPage from "../pages/adminPage/AdminPage";
@@ -40,11 +36,7 @@ const RouteManagement = () => {
   return (
     <>
       <Suspense fallback={LoadingComponent}>
-        {/* <LayoutComponent> */}
-        {/* <Routes>
-          <Route path="/" element={<HomePage />} />
-        </Routes> */}
-        {/* </LayoutComponent> */}
+       
 
         {!token ? (
           <Routes>

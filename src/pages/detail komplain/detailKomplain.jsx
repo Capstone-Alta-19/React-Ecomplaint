@@ -1,4 +1,14 @@
-import { Button, Card, Col, Dropdown, Input, Row, Select, Space, Table } from "antd";
+import {
+  Button,
+  Card,
+  Col,
+  Dropdown,
+  Input,
+  Row,
+  Select,
+  Space,
+  Table,
+} from "antd";
 
 import React from "react";
 import "./style.css";
@@ -11,7 +21,6 @@ const DetailKomplain = () => {
       title: "Avatar",
       dataIndex: "avatar",
       key: "avatar",
-      
     },
     {
       title: "Product Name",
@@ -40,10 +49,7 @@ const DetailKomplain = () => {
         INITIAL_TABLE_DATA.length >= 1 ? (
           <Space>
             <a>Edit</a>
-            <Popconfirm
-              title="Sure to delete?"
-              arrow={false}
-            >
+            <Popconfirm title="Sure to delete?" arrow={false}>
               <a>Delete</a>
             </Popconfirm>
           </Space>
@@ -87,16 +93,16 @@ const DetailKomplain = () => {
           <Table></Table>
           <Row align="end">
             <Col>
-            <Space>
-            <Button type="primary" primary>Save</Button>
-          <Button>Save As</Button></Col>
-          </Space>
-        
+              <Space>
+                <Button type="primary" primary>
+                  Save
+                </Button>
+                <Button>Save As</Button>
+              </Space>
+            </Col>
           </Row>
-          
         </Col>
       </Row>
-     
     </div>
   );
 };
