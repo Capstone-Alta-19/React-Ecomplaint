@@ -44,8 +44,8 @@ const RouteManagement = () => {
           <LayoutComponentAdmin>
             <Routes>
             
-            <Route path="/dashboard-overview" element={<DetailKomplain />} />
-            
+          
+            <Route path="/dashboard-overview/:type" element={<DetailKomplain />} />
         
               <Route path="/dashboard" element={<DashboardAdmin />} />
               <Route path="/laporan" element={<LaporanAdmin />} />

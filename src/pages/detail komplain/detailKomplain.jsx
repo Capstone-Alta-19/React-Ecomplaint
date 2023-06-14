@@ -13,29 +13,38 @@ import {
 import Gap from "../../components/gap/Gap";
 import { SearchOutlined } from "@ant-design/icons";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./style.css";
 import Search from "antd/es/input/Search";
 import { back } from "../../assets";
 import EditButtons from "../../components/Buttons/EditButtons";
+import { useGetDashboard } from "./hooks/useDashboard";
+import { useParams } from "react-router-dom";
+import { INITIAL_TABLE_DATA } from "./constants";
 
 const DetailKomplain = () => {
+  const [sort, setSort] = useState("desc");
+  const [search, setSearch] = useState("");
+  console.log({sort});
+  const {type} = useParams();
+  const [isLoadingData, dashboardData, getDashboardData] = useGetDashboard();
+  console.log({dashboardData})
   const TABLE_COLUMNS = [
     {
       title: "No.",
-      dataIndex: "avatar",
-      key: "avatar",
+      dataIndex: "id",
+      key: "id",
       
     },
     {
       title: "Type",
-      dataIndex: "productName",
-      key: "productName",
+      dataIndex: "type",
+      key: "type",
     },
     {
       title: "Categories",
-      dataIndex: "productCategory",
-      key: "productCategory",
+      dataIndex: "category",
+      key: "category",
     },
     {
       title: "Tanggal",
@@ -44,8 +53,8 @@ const DetailKomplain = () => {
     },
     {
       title: "Isi",
-      dataIndex: "productPrice",
-      key: "productPrice",
+      dataIndex: "description",
+      key: "description",
     },
     {
       title: "Status",
@@ -70,6 +79,15 @@ const DetailKomplain = () => {
         ) : null,
     },
   ];
+  useEffect(() => {
+ 
+  
+    
+    const page = "1";
+    const limit = "100"
+    getDashboardData(sort, type, search, page, limit);
+  }, [type, sort, search])
+  
   return (
     <div className="body">
       
@@ -90,14 +108,18 @@ const DetailKomplain = () => {
               placeholder="Recently Added"
               options={[
                 {
-                  value: "lucy",
-                  label: "Lucy",
+                  value: "desc",
+                  label: "descending",
                 },
                 {
-                  value: "tom",
-                  label: "Tom",
+                  value: "asc",
+                  label: "ascending",
                 },
-              ]}
+              ]
+            }
+            onChange={(value) => {
+              setSort(value)
+            }}
             ></Select>
 
    
@@ -106,13 +128,14 @@ const DetailKomplain = () => {
               placeholder="Search"
               allowClear
               className="search-item"
+
             />
             </Row >
         </div>
       
 
         <br></br>
-        <Table className="table-one" columns={TABLE_COLUMNS}></Table>
+        <Table className="table-one" dataSource={dashboardData?.complaints} columns={TABLE_COLUMNS}></Table>
 
         <Row className="save" align="end">
           
