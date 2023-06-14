@@ -1,0 +1,52 @@
+
+.boxStyle {
+  border-radius: 20px;
+  background-color: #fff;
+  padding: 20px;
+  display: inline-block;
+  width: 200px;
+  margin-bottom: 20px;
+}
+
+.centeredTextStyle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 103%;
+}
+
+.inputOption {
+  margin-bottom: 20px;
+  width: 200px;
+}
+.search {
+  width: 200px;
+  border-radius: 20px;
+}
+
+/* laporan.css */
+.ant-table-thead > tr > th {
+    background-color: #FCFCFC;
+    border-radius: 8px 0 0 0;
+  }
+  
+  .ant-table-thead > tr > th:last-child {
+    border-radius: 0 8px 0 0;
+  }
+  
+  .ant-table-cell {
+    padding: 8px 16px;
+  }
+  
+  .ant-table-tbody > tr > td {
+    border-top: 1px solid #f0f0f0;
+  }
+  
+  .ant-table-tbody > tr:last-child > td {
+    border-bottom: 1px solid #f0f0f0;
+  }
