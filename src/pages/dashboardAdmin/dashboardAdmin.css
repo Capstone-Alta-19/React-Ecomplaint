@@ -1,9 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 
-
 body{
     background-color: #F0F0F0;
-    margin: 5vh 0vh 10vh 20vh;
+    margin: 20vh 0vh 10vh 20vh;
 }
 
 .card-shadow{
