@@ -1,3 +1,57 @@
 .table-page-dashboard {
     padding: 0px 50px;
 }
+.searchbar {
+   
+    display:grid;
+    padding: 5px 20px;
+
+}
+
+.search-item{
+    background: #FFFFFF;
+    width: 265.51px;
+    height: 39px;
+    border-radius: 20px;
+    border: 1px solid #C1BEBE;
+   
+    
+}
+
+.table-one{
+    padding: 10px 20px;
+}
+.save{
+    padding: 10px 20px;
+}
+.space-back{
+    padding: 10px 20px;
+}
+.searchbar-filter{
+    height: 39px;
+width: 265.5112609863281px;
+
+border-radius: 5px;
+
+
+}
+
+.SaveButton {
+    height: 46px;
+    width: 98px;
+    color: #FFFFFF;
+    border-radius: 4px;
+    padding: 8px 16px 8px 16px;
+    
+    font-family: Poppins;
+font-size: 20px;
+font-weight: 700;
+line-height: 30px;
+letter-spacing: 0em;
+text-align: left;
+background: linear-gradient(0deg, #047D95, #047D95),
+linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
+
+    border-radius: 0px;
+    
+}

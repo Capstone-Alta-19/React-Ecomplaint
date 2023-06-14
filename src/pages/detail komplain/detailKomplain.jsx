@@ -1,37 +1,61 @@
-import { Button, Card, Col, Dropdown, Input, Row, Select, Space, Table } from "antd";
+
+import {
+  Button,
+  Card,
+  Col,
+  Dropdown,
+  Input,
+  Row,
+  Select,
+  Space,
+  Table,
+} from "antd";
+import Gap from "../../components/gap/Gap";
+import { SearchOutlined } from "@ant-design/icons";
 
 import React from "react";
 import "./style.css";
 import Search from "antd/es/input/Search";
 import { back } from "../../assets";
+import EditButtons from "../../components/Buttons/EditButtons";
 
 const DetailKomplain = () => {
   const TABLE_COLUMNS = [
     {
-      title: "Avatar",
+      title: "No.",
       dataIndex: "avatar",
       key: "avatar",
       
     },
     {
-      title: "Product Name",
+      title: "Type",
       dataIndex: "productName",
       key: "productName",
     },
     {
-      title: "Product Category",
+      title: "Categories",
       dataIndex: "productCategory",
       key: "productCategory",
     },
     {
-      title: "Product Freshness",
+      title: "Tanggal",
       dataIndex: "productFresh",
       key: "productFresh",
     },
     {
-      title: "Product Price",
+      title: "Isi",
       dataIndex: "productPrice",
       key: "productPrice",
+    },
+    {
+      title: "Status",
+      dataIndex: "action",
+      render: () =>
+        INITIAL_TABLE_DATA.length >= 1 ? (
+          <Space>
+            <EditButtons></EditButtons>
+          </Space>
+        ) : null,
     },
     {
       title: "Action",
@@ -39,36 +63,30 @@ const DetailKomplain = () => {
       render: () =>
         INITIAL_TABLE_DATA.length >= 1 ? (
           <Space>
-            <a>Edit</a>
-            <Popconfirm
-              title="Sure to delete?"
-              arrow={false}
-            >
-              <a>Delete</a>
-            </Popconfirm>
+
+            <EditButtons></EditButtons>
+
           </Space>
         ) : null,
     },
   ];
   return (
-    <div>
-      <Row className="table-overview">
-        <Col span={1}></Col>
-        <Col span={2}>
-          <Space></Space>
-        </Col>
-      </Row>
+    <div className="body">
+      
 
-      <Row align="center">
-        <Col span={10}>
-          <Space>
-            <img src={back}></img>
+      <div className="body2">
+        <Space className="space-back">
+          <img src={back}></img>
 
-            <h1>Overview</h1>
-          </Space>
-          <br></br>
-          <Space>
+          <h1>Overview</h1>
+        </Space>
+        <br></br>
+        <br></br>
+        <div className="searchbar">
+          <Row justify="space-between">
+          
             <Select
+              className="searchbar-filter"
               placeholder="Recently Added"
               options={[
                 {
@@ -81,22 +99,29 @@ const DetailKomplain = () => {
                 },
               ]}
             ></Select>
-            <Search placeholder="Search" allowClear></Search>
-          </Space>
-          <br></br>
-          <Table></Table>
-          <Row align="end">
-            <Col>
-            <Space>
-            <Button type="primary" primary>Save</Button>
-          <Button>Save As</Button></Col>
-          </Space>
-        
-          </Row>
+
+   
+            <Input
+              prefix={<SearchOutlined />}
+              placeholder="Search"
+              allowClear
+              className="search-item"
+            />
+            </Row >
+        </div>
+      
+
+        <br></br>
+        <Table className="table-one" columns={TABLE_COLUMNS}></Table>
+
+        <Row className="save" align="end">
           
-        </Col>
-      </Row>
-     
+          <Col>
+            <Button className="SaveButton">Export</Button>
+          </Col>
+        </Row>
+      </div>
+
     </div>
   );
 };
