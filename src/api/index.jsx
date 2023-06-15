@@ -1,9 +1,9 @@
-import { newBaseAPI } from "../config/apiService";
+import { baseAPI } from "../config/apiService";
 
 export const api = {
   //API
   //Admin Login
   login: (body) => {
-    return newBaseAPI.post("/login/admin", body);
+    return baseAPI.post("/login/admin", body);
   },
 };

@@ -1,6 +1,7 @@
 import React from "react";
 import { Layout, Button } from "antd";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   Bell,
   Berita,
@@ -16,6 +17,7 @@ import Gap from "../gap/Gap";
 
 const LayoutComponentAdmin = ({ children }) => {
   const { Content, Sider } = Layout;
+  const navigate = useNavigate();
 
   return (
     <>
@@ -30,7 +32,11 @@ const LayoutComponentAdmin = ({ children }) => {
             <Gap height={20} />
 
             <Link to={"/dashboard"}>
-              <img src={Dashboard} alt="Dashboard" />
+              <img
+                src={Dashboard}
+                alt="Dashboard"
+                className="dashboard-admin"
+              />
             </Link>
             <Link to={"/laporan"}>
               <img src={Laporan} alt="Laporan" />
@@ -52,6 +58,7 @@ const LayoutComponentAdmin = ({ children }) => {
                   type="primary"
                   onClick={() => {
                     localStorage.removeItem("token");
+                    navigate("/admin");
                   }}
                   danger
                 >

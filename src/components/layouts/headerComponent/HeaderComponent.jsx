@@ -17,10 +17,10 @@ const HeaderComponent = () => {
           </Col>
           <Col span={12}>
             <div className="headerMenu">
-              <a href="#">
+              <a href="/">
                 <p>Home</p>
               </a>
-              <a href="#">
+              <a href="/homepagebantuan">
                 <p>Bantuan</p>
               </a>
               <a href="#">
