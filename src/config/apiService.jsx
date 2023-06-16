@@ -1,4 +1,5 @@
 import axios from "axios";
+
 import { BASE_URL } from "../utils";
 
 export const baseAPI = axios.create({
@@ -6,4 +7,6 @@ export const baseAPI = axios.create({
   headers: {
     "Content-Type": "application/json",
   },
+
+
 });

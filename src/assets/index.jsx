@@ -1,3 +1,11 @@
+
+import verif from "./images/Verifikasi.png"
+import verif2 from "./images/Verifikasi2.png"
+import email from "./images/email.png"
+import isiform from "./images/isiform.png"
+import back from "./images/back.png"
+
+
 import EComplain from "./images/Ecomplainz.svg";
 import IconEcomplain from "./images/IconEcomplain.svg";
 import WhatAppIcon from "./images/CallWA.png";
@@ -40,4 +48,6 @@ export {
   Pengaturan,
   Bell,
   ImageAdmin,
+  verif, verif2, email,isiform, back
 };
+
