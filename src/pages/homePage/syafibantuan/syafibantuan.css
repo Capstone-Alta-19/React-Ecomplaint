@@ -3,39 +3,32 @@
   font-size: 35px;
   font-weight: bold;
   font-family: PoppinsBold;
+  margin-left: 70px;
+}
+.tentang-bantuan{
+  margin-left: 70px;
 }
 
-.feature {
-  background-color: aliceblue;
+.WhatsApp {
+  position: absolute;
+  margin-top: 100px;
+ margin-left: 750px;
+
 }
 
-.WAIcon{
-  
-  margin-left: 620px;
-  
-}
-
-.WAIcon > img {
+.WhatsApp > img {
   height: auto;
- 
 }
 
+.quest {
 
-.content-quest > div {
-  padding: 10px 1px 15px 60px;
-  background-color: #F0FFFF;
-
-}
-
-.class-quest {
-  margin-left: 150px;
   border-radius: 20px;
   width: 824px;
   height: 300px;
-
+  padding: 40px;
 }
 
-.class-quest > h2 {
+.quest > h2 {
   color: #3c486b;
   text-align: left;
   margin-left: 30px;
@@ -59,15 +52,14 @@
   position: sticky;
 }
 
-.teks {
-white-space: pre-line;
-  margin-left: 800px;
+.pertanyaan {
+  white-space: pre-line;
   opacity: 0;
   transition: opacity 0.3s ease;
   color: black;
   font-size: 12px;
 }
 
-.WAIcon:hover .teks {
+.WhatsApp:hover .pertanyaan {
   opacity: 1;
 }

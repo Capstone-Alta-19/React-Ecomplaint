@@ -23,9 +23,7 @@ const HomePage = () => {
             <a className="konten">{teks.teks2}</a>
             <a className="konten">{teks.teks3}</a>
             <a className="konten">{teks.teks4}</a>
-            <div className="icon" href="https://www.google.com/">
-              <RightOutlined justify="end" />
-            </div>
+            <RightOutlined justify="end" />
             <hr />
           </div>
         ))}

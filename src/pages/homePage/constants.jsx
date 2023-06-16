@@ -16,3 +16,22 @@ export const USERS_INDO = [
     teks4: "Cara membuat laporan?",
   },
 ];
+
+export const Bantuan = [
+  {
+    id: "1",
+    teks1: "Bagaimana cara mengganti password?",
+  },
+  {
+    id: "2",
+    teks2: "Apa identitas saya sebagai pelapor terjamin?",
+  },
+  {
+    id: "3",
+    teks3: "Kenapa laporan mahasiswa ditolak pihak kampus?",
+  },
+  {
+    id: "4",
+    teks4: "Cara membuat laporan?",
+  },
+];
