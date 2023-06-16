@@ -24,6 +24,7 @@ import Tambah from "./images/Tambah Admin.svg";
 import Pengaturan from "./images/Pengaturan.svg";
 import Bell from "./images/Bell_pin.svg";
 import ImageAdmin from "./images/ImgSuperAdmin.svg";
+import Useralt from "./images/User_alt.svg";
 
 export {
   EComplain,
@@ -51,4 +52,5 @@ export {
   email,
   isiform,
   back,
+  Useralt,
 };
