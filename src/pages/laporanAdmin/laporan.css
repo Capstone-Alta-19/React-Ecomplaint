@@ -1,11 +1,13 @@
 
 .boxStyle {
+  margin: 20px 0px 20px 20px;
   border-radius: 20px;
   background-color: #fff;
   padding: 20px;
   display: inline-block;
   width: 200px;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px;
+  margin-left: 20px; */
 }
 
 .centeredTextStyle {
@@ -26,6 +28,7 @@
 }
 .search {
   width: 200px;
+  height: 35px;
   border-radius: 20px;
 }
 

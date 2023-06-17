@@ -1,10 +1,8 @@
-
-import verif from "./images/Verifikasi.png"
-import verif2 from "./images/Verifikasi2.png"
-import email from "./images/email.png"
-import isiform from "./images/isiform.png"
-import back from "./images/back.png"
-
+import verif from "./images/Verifikasi.png";
+import verif2 from "./images/Verifikasi2.png";
+import email from "./images/email.png";
+import isiform from "./images/isiform.png";
+import back from "./images/back.png";
 
 import EComplain from "./images/Ecomplainz.svg";
 import IconEcomplain from "./images/IconEcomplain.svg";
@@ -26,6 +24,8 @@ import Tambah from "./images/Tambah Admin.svg";
 import Pengaturan from "./images/Pengaturan.svg";
 import Bell from "./images/Bell_pin.svg";
 import ImageAdmin from "./images/ImgSuperAdmin.svg";
+import Gembok from "./images/Lock.svg";
+import Pesan from "./images/Comments.svg";
 
 export {
   EComplain,
@@ -48,6 +48,11 @@ export {
   Pengaturan,
   Bell,
   ImageAdmin,
-  verif, verif2, email,isiform, back
+  verif,
+  verif2,
+  email,
+  isiform,
+  back,
+  Gembok,
+  Pesan,
 };
-

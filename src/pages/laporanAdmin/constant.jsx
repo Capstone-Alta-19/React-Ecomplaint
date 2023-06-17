@@ -2,7 +2,7 @@ export const data_table = [
   {
     key: "1",
     type: "Complaint",
-    categories: "Sarana...",
+    categories: "Sarana dan Prasarana",
     tanggal: "01/02/2023",
     isi: "Komputer",
     status: "Terjawab"

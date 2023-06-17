@@ -1,17 +1,10 @@
-
-import HomePage from "../pages/homePage/homePage";
+import HomePage from "../pages/HomePage/abi/HomePage4";
 import PengaturanPage from "../pages/pengaturan/pengaturanPage";
 
+import DetailKomplain from "../pages/detailKomplain/detailKomplain";
 
-
-
-
-import DetailKomplain from "../pages/detail komplain/detailKomplain";
-   
-        
-     
 import React, { Suspense, useEffect } from "react";
-import LoadingComponent from "../components/loadingComponent/LoadingComponent";
+import LoadingComponent from "../components/loadingComponent/LoadingComponent.jsx";
 import { Routes, Route, useNavigate } from "react-router-dom";
 
 import LayoutComponent from "../components/layouts/LayoutComponent";
@@ -35,9 +28,13 @@ const RouteManagement = () => {
 
   return (
     <>
-      <Suspense fallback={LoadingComponent}>
-       
+      {/* <LayoutComponent>*/}
+        {/* <Routes>
+          <Route path="/homePage" element={<HomePage />}></Route>
+        </Routes> */}
+      {/*</LayoutComponent> */}
 
+      <Suspense fallback={LoadingComponent}>
         {!token ? (
           <Routes>
             <Route path="/admin" element={<AdminPage />} />
@@ -45,10 +42,9 @@ const RouteManagement = () => {
         ) : (
           <LayoutComponentAdmin>
             <Routes>
-            
-            <Route path="/dashboard-overview" element={<DetailKomplain />} />
-             <Route path="/pengaturan" element={<PengaturanPage />} /> 
-        
+              <Route path="/dashboard-overview" element={<DetailKomplain />} />
+              <Route path="/pengaturan" element={<PengaturanPage />} />
+
               <Route path="/dashboard" element={<DashboardAdmin />} />
               <Route path="/laporan" element={<LaporanAdmin />} />
               <Route path="/berita" element={<BeritaAdmin />} />
@@ -59,8 +55,6 @@ const RouteManagement = () => {
         )}
       </Suspense>
     </>
-
-
   );
 };
 
