@@ -1,4 +1,5 @@
 
+
 import {
   Button,
   Card,
@@ -31,10 +32,12 @@ const DetailKomplain = () => {
   console.log({dashboardData})
   const TABLE_COLUMNS = [
     {
+
       title: "No.",
       dataIndex: "id",
       key: "id",
       
+
     },
     {
       title: "Type",
@@ -73,7 +76,9 @@ const DetailKomplain = () => {
         INITIAL_TABLE_DATA.length >= 1 ? (
           <Space>
 
+
             <EditButtons></EditButtons>
+
 
           </Space>
         ) : null,
@@ -144,6 +149,7 @@ const DetailKomplain = () => {
           </Col>
         </Row>
       </div>
+
 
     </div>
   );

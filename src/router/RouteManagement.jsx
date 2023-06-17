@@ -1,8 +1,18 @@
 
+import PengaturanPage from "../pages/pengaturan/pengaturanPage";
+
+
+
+
+
+        
+     
+
 import React, { Suspense } from "react";
 import LoadingComponent from "../components/loadingComponent/LoadingComponent";
 import { Routes, Route, redirect } from "react-router-dom";
 import HomePage from "../pages/homePage/HomePage";
+
 import LayoutComponent from "../components/layouts/LayoutComponent";
 
 
@@ -32,6 +42,7 @@ const RouteManagement = () => {
     <>
       <Suspense fallback={LoadingComponent}>
 
+
         {/* {!token && pathname !== "/admin" ? (
           <>
             <LayoutComponent>
@@ -49,9 +60,12 @@ const RouteManagement = () => {
         ) : (
           <LayoutComponentAdmin>
             <Routes>
-            
+
+             <Route path="/pengaturan" element={<PengaturanPage />} /> 
+
           
             <Route path="/dashboard-overview/:type" element={<DetailKomplain />} />
+
         
               <Route path="/dashboard" element={<DashboardAdmin />} />
               <Route path="/laporan" element={<LaporanAdmin />} />
@@ -86,6 +100,7 @@ const RouteManagement = () => {
         </LayoutComponentAdmin>
       </Suspense>
     </>
+
 
   );
 };

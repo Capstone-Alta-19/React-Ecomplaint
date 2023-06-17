@@ -1,4 +1,5 @@
 
+
 import React from "react";
 import RouteManagement from "./router/RouteManagement";
 
@@ -11,5 +12,6 @@ const App = () => {
     </>
   );
 };
+
 
 export default App;

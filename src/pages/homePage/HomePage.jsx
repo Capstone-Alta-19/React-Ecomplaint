@@ -1,77 +1,34 @@
 import React from "react";
 import "./homePage.css";
-import {
-  Carousel1,
-  Carousel2,
-  Carousel3,
-  Carousel4,
-  IconEcomplain,
-} from "../../assets";
+import { USERS_INDO } from "./constant";
+import { RightOutlined } from "@ant-design/icons";
+import image from "./assets/img/CallWA.png";
 import Gap from "../../components/gap/Gap";
-import HomePage2 from "./syafi/HomePage2";
-import HomePage3 from "./ziqo/HomePage3";
-import HomePage4 from "./abi/HomePage4";
-import { Col, Row, Carousel } from "antd";
-
-const styleDefaults = {
-  height: "auto",
-  color: "white",
-  fontSize: 100,
-  textAlign: "center",
-};
+// import Gap from "../../components/gap/Gap";
 
 const HomePage = () => {
   return (
     <>
-      <div className="homepageLayout">
-        <div className="homepageContent">
-          <Row>
-            <Col span={12} className="homepageTitle">
-              <p>
-                Sampaikan keluhan lebih
-                <br />
-                mudah, <br />
-                dengan com
-                <img src={IconEcomplain} alt="Icon E Complainz" width={50} />
-                lainz
-              </p>
-
-              <div className="titleDesc">
-                <p>
-                  Tidak perlu repot-repot lagi menghubungi layanan pelanggan
-                  yang memakan waktu <br /> lama dan membingungkan
-                </p>
-              </div>
-              <Gap height={30} />
-              <button>Download Now</button>
-            </Col>
-            <Col span={12}>
-              <Carousel
-                autoplay
-                effect="fade"
-                dots={false}
-                autoplaySpeed={2000}
-              >
-                <img src={Carousel1} alt="Carousel 1" />
-                <img src={Carousel2} alt="Carousel 2" />
-                <img src={Carousel3} alt="Carousel 3" />
-                <img src={Carousel4} alt="Carousel 4" />
-              </Carousel>
-            </Col>
-          </Row>
-        </div>
-        <div className="homepage2-content">
-          <HomePage2 />
-        </div>
-        <Gap height={150} />
-        <div>
-          <HomePage3 />
-        </div>
-        <Gap height={175} />
-        <div>
-          <HomePage4 />
-        </div>
-        <Gap height={200} />
+      <h1 className="about-bantuan">Perlu Bantuan ?</h1>
+      <div className="WhatsApp">
+        <img src={image} height={50} width={250} />
+      </div>
+      <Gap height={20} />
+      <div className="quest">
+        <h2 className="bantu">Kami akan membantu</h2>
+        <Gap height={20} />
+        {USERS_INDO.map((teks, index) => (
+          <div className="bantuan" key={index}>
+            <a className="konten">{teks.teks1}</a>
+            <a className="konten">{teks.teks2}</a>
+            <a className="konten">{teks.teks3}</a>
+            <a className="konten">{teks.teks4}</a>
+            <div className="icon" href="https://www.google.com/">
+              <RightOutlined justify="end" />
+            </div>
+            <hr />
+          </div>
+        ))}
       </div>
     </>
   );
