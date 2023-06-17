@@ -72,14 +72,7 @@ const RouteManagement = () => {
             <Routes>
 
              
-              <Route path="/homepage" element={<HomePage2 />} />
-
-
-             <Route path="/pengaturan" element={<PengaturanPage />} /> 
-
-          
-            <Route path="/dashboard-overview/:type" element={<DetailKomplain />} />
-
+             
         
 
               <Route path="/dashboard" element={<DashboardAdmin />} />
@@ -107,6 +100,14 @@ const RouteManagement = () => {
 
         <LayoutComponentAdmin>
           <Routes>
+                   <Route path="/homepage" element={<HomePage2 />} />
+
+
+             <Route path="/pengaturan" element={<PengaturanPage />} /> 
+
+          
+            <Route path="/dashboard-overview/:type" element={<DetailKomplain />} />
+
             <Route path="/dashboard" element={<DashboardAdmin />} />
             <Route path="/laporan" element={<LaporanAdmin />} />
             <Route path="/berita" element={<BeritaAdmin />} />
