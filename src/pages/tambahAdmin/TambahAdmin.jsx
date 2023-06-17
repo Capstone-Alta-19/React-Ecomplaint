@@ -8,7 +8,7 @@ import { Row, Col } from "antd";
 const TambahAdmin = () => {
   return (
     <>
-      <div className="container">
+      <div className="container-judul">
         <div>
           <Row className="judulteks">
             <Col span={6}>

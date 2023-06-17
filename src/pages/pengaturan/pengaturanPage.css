@@ -4,13 +4,14 @@
     margin: 12px 24px 12px 24px;
     position: absolute;
     border-radius: 10px;
-    
-   
+    height: auto;
+    width: auto;
 }
-.gantipassword{
+.gantipasswd{
     color: #3C486B;
     font-size: 18px;
-    margin-left: -350px;
+   text-align: left;
+   font-weight: bold;
 }
 
 .ant-form-item-label>label {

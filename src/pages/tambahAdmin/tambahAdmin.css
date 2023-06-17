@@ -1,9 +1,11 @@
-.container {
+.container-judul{
     background-color: #FCFCFC;
     padding: 20px 10px 2px 10px;
     margin: 12px 24px 12px 24px;
-    position: absolute;
     border-radius: 10px;
+    height: auto;
+    width: auto;
+    position: absolute;
 
 }
 

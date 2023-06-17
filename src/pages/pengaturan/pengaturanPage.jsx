@@ -62,7 +62,7 @@ const PengaturanPage = () => {
             <Input placeholder="Admin1Complaintz@mail.com" />
           </Form.Item>
 
-          <div className="gantipassword">Ganti Password</div>
+          <div className="gantipasswd">Ganti Password</div>
 
           <Form.Item
             label="Password Lama"
