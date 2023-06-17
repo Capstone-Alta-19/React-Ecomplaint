@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+body{
+    background-color: #F0F0F0;
+    margin: 20vh 0vh 10vh 20vh;
+}
+
+.card-shadow{
+    background-color: #F0F0F0;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+}
+
+.card-shadow p{
+    padding-left: 15px;
+}
+
+.card-shadow span{
+    padding-left: 15px;
+    font-size: 11px;
+}
+
+.foto{
+    border-radius: 100%;
+}
+
+.overview{
+    color: #3C486B;
+    font-family: 'Poppins', sans-serif ;
+    font-size: 24px;
+}
+
+.button-view{
+    border-color: #3C486B;
+    background-color: #F0F0F0;
+    color: #3C486B;
+    font-size: 14px;
+    font-weight: 700;
+    margin: 0px 0px 10px 15px;
+}
+
+.button-view2{
+    border-color: #3C486B;
+    background-color: #F0F0F0;
+    color: #3C486B;
+    font-size: 14px;
+    font-weight: 700;
+    margin-left: 18vh;
+}
+
+.button-view3{
+    border-color: #3C486B;
+    background-color: #F0F0F0;
+    color: #3C486B;
+    font-size: 14px;
+    font-weight: 700;
+    margin: 0vh 0vh 1vh 18vh;
+}
+
+.recently-added{
+    font-size: 16px;
+    color: #3C486B;
+    font-family: 'Poppins', sans-serif ;
+}
+
+#judul-komplain{
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    color: #3C486B;
+}
+
+.status1{
+    background-color: yellow ;
+    color: #000000;
+    margin-left: 4px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.status2{
+    border-color: #43D200;
+    background-color: #F0F0F0;
+    color:#000000;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.isi-komplain{
+    font-size: 12px;
+    color: #3C486B;
+    font-family: 'Poppins', sans-serif ;
+}
+
+.status1-aspirasi{
+    background-color: #A189FF;
+    color: #3C486B;
+    margin-left: 4px;
+    font-size: 12px;
+    font-weight: 500;
+
+}
