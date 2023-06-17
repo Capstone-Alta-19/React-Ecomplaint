@@ -1,3 +1,5 @@
+
+
 import {
   Button,
   Card,
@@ -9,38 +11,63 @@ import {
   Space,
   Table,
 } from "antd";
+import Gap from "../../components/gap/Gap";
+import { SearchOutlined } from "@ant-design/icons";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./style.css";
 import Search from "antd/es/input/Search";
 import { back } from "../../assets";
+import EditButtons from "../../components/Buttons/EditButtons";
+import { useGetDashboard } from "./hooks/useDashboard";
+import { useParams } from "react-router-dom";
+import { INITIAL_TABLE_DATA } from "./constants";
 
 const DetailKomplain = () => {
+  const [sort, setSort] = useState("desc");
+  const [search, setSearch] = useState("");
+  console.log({sort});
+  const {type} = useParams();
+  const [isLoadingData, dashboardData, getDashboardData] = useGetDashboard();
+  console.log({dashboardData})
   const TABLE_COLUMNS = [
     {
-      title: "Avatar",
-      dataIndex: "avatar",
-      key: "avatar",
+
+      title: "No.",
+      dataIndex: "id",
+      key: "id",
+      
+
     },
     {
-      title: "Product Name",
-      dataIndex: "productName",
-      key: "productName",
+      title: "Type",
+      dataIndex: "type",
+      key: "type",
     },
     {
-      title: "Product Category",
-      dataIndex: "productCategory",
-      key: "productCategory",
+      title: "Categories",
+      dataIndex: "category",
+      key: "category",
     },
     {
-      title: "Product Freshness",
+      title: "Tanggal",
       dataIndex: "productFresh",
       key: "productFresh",
     },
     {
-      title: "Product Price",
-      dataIndex: "productPrice",
-      key: "productPrice",
+      title: "Isi",
+      dataIndex: "description",
+      key: "description",
+    },
+    {
+      title: "Status",
+      dataIndex: "action",
+      render: () =>
+        INITIAL_TABLE_DATA.length >= 1 ? (
+          <Space>
+            <EditButtons></EditButtons>
+          </Space>
+        ) : null,
     },
     {
       title: "Action",
@@ -48,61 +75,82 @@ const DetailKomplain = () => {
       render: () =>
         INITIAL_TABLE_DATA.length >= 1 ? (
           <Space>
-            <a>Edit</a>
-            <Popconfirm title="Sure to delete?" arrow={false}>
-              <a>Delete</a>
-            </Popconfirm>
+
+
+            <EditButtons></EditButtons>
+
+
           </Space>
         ) : null,
     },
   ];
+  useEffect(() => {
+ 
+  
+    
+    const page = "1";
+    const limit = "100"
+    getDashboardData(sort, type, search, page, limit);
+  }, [type, sort, search])
+  
   return (
-    <div>
-      <Row className="table-overview">
-        <Col span={1}></Col>
-        <Col span={2}>
-          <Space></Space>
-        </Col>
-      </Row>
+    <div className="body">
+      
 
-      <Row align="center">
-        <Col span={10}>
-          <Space>
-            <img src={back}></img>
+      <div className="body2">
+        <Space className="space-back">
+          <img src={back}></img>
 
-            <h1>Overview</h1>
-          </Space>
-          <br></br>
-          <Space>
+          <h1>Overview</h1>
+        </Space>
+        <br></br>
+        <br></br>
+        <div className="searchbar">
+          <Row justify="space-between">
+          
             <Select
+              className="searchbar-filter"
               placeholder="Recently Added"
               options={[
                 {
-                  value: "lucy",
-                  label: "Lucy",
+                  value: "desc",
+                  label: "descending",
                 },
                 {
-                  value: "tom",
-                  label: "Tom",
+                  value: "asc",
+                  label: "ascending",
                 },
-              ]}
+              ]
+            }
+            onChange={(value) => {
+              setSort(value)
+            }}
             ></Select>
-            <Search placeholder="Search" allowClear></Search>
-          </Space>
-          <br></br>
-          <Table></Table>
-          <Row align="end">
-            <Col>
-              <Space>
-                <Button type="primary" primary>
-                  Save
-                </Button>
-                <Button>Save As</Button>
-              </Space>
-            </Col>
-          </Row>
-        </Col>
-      </Row>
+
+   
+            <Input
+              prefix={<SearchOutlined />}
+              placeholder="Search"
+              allowClear
+              className="search-item"
+
+            />
+            </Row >
+        </div>
+      
+
+        <br></br>
+        <Table className="table-one" dataSource={dashboardData?.complaints} columns={TABLE_COLUMNS}></Table>
+
+        <Row className="save" align="end">
+          
+          <Col>
+            <Button className="SaveButton">Export</Button>
+          </Col>
+        </Row>
+      </div>
+
+
     </div>
   );
 };

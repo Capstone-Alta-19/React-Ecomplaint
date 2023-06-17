@@ -10,20 +10,18 @@ export const useLogin = () => {
       setIsLoading(true);
       const res = await api.login(body);
 
-      console.log({ res });
-
       if (res) {
         localStorage.setItem("access_token", res.data?.access_token);
         message.open({
           type: "success",
-          content: "Berhasil Login",
+          content: "Login Berhasil",
         });
         onSuccess && onSuccess();
       }
     } catch (err) {
       message.open({
         type: "error",
-        content: `${err?.message}`,
+        content: "Login Gagal",
       });
     } finally {
       setIsLoading(false);

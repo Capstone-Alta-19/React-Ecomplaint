@@ -5,32 +5,32 @@ import { Button, Form, Input } from "antd";
 import { useLogin } from "./hooks/useAuth";
 import Gap from "../../components/gap/Gap";
 import { useNavigate } from "react-router-dom";
+import { Typography } from "antd";
 
 const AdminPage = () => {
   const [form] = Form.useForm();
   const navigate = useNavigate();
-
-  const onFinish = (values) => {
-    localStorage.setItem("token", true);
-    navigate("/dashboard");
-    console.log(values);
-  };
+  const { Text } = Typography;
 
   //API LOGIN
   const [isLoadingLogin, login] = useLogin();
 
+  const onFinish = (values) => {
+    login(values, () => {
+      navigate("/dashboard");
+    });
+  };
+
   return (
-    <div className="container-center">
+    <div className="layout-admin">
       <div className="content-admin">
-        <img src={EcomplainzWhite} alt="Ecomplain Icon" />
-        <div>
-          <Form
-            name="login-admin"
-            form={form}
-            onFinish={onFinish}
-            className="form-style"
-            placeholder=""
-          >
+        <div className="form-admin">
+          <Gap height={80} />
+          <img src={EcomplainzWhite} alt="Ecomplain Icon" />
+          <Gap height={100} />
+
+          <Form name="login-admin" form={form} onFinish={onFinish}>
+            <Text className="input-label">Username</Text>
             <Form.Item
               name="username"
               rules={[
@@ -42,8 +42,9 @@ const AdminPage = () => {
             >
               <Input className="form-table" placeholder="Masukkan Username" />
             </Form.Item>
-            <Gap height={10} />
+            <Gap height={15} />
 
+            <Text className="input-label">Password</Text>
             <Form.Item
               name="password"
               rules={[
@@ -58,11 +59,16 @@ const AdminPage = () => {
                 placeholder="Masukkan Password"
               />
             </Form.Item>
-            <Gap height={10} />
+            <Gap height={20} />
 
             <Form.Item>
-              <Button type="primary" htmlType="submit" className="form-button">
-                Masuk
+              <Button
+                loading={isLoadingLogin}
+                type="primary"
+                htmlType="submit"
+                className="form-button"
+              >
+                <p>Masuk</p>
               </Button>
             </Form.Item>
           </Form>

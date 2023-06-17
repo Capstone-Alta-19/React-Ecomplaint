@@ -1,0 +1,7 @@
+.body-cat{
+    background-image: url("../assets/images/Desktop.png");
+    width: auto;
+    height: 900px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}

@@ -1,5 +1,12 @@
 import axios from "axios";
 
-export const newBaseAPI = axios.create({
-  baseURL: "178.128.210.192",
+import { BASE_URL } from "../utils";
+
+export const baseAPI = axios.create({
+  baseURL: BASE_URL.API,
+  headers: {
+    "Content-Type": "application/json",
+  },
+
+
 });
