@@ -1,0 +1,48 @@
+@font-face {
+  font-family: PoppinsBold;
+  src: url(../../assets/font/Poppins-Bold.ttf);
+}
+
+.homepageLayout {
+  margin: 10rem 5rem;
+}
+
+.homepageContent {
+  width: 100%;
+  color: #3c486b;
+}
+
+.homepageTitle {
+  padding-left: 10rem;
+  line-height: 4rem;
+}
+
+.homepageTitle > p {
+  font-size: 2.8vw;
+  font-weight: bolder;
+  font-family: PoppinsBold;
+}
+
+.homepageTitle > button {
+  background-color: #3c486b;
+  border: 0;
+  border-radius: 30px;
+  width: 200px;
+  height: 50px;
+  color: #f0f0f0;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.titleDesc > p {
+  font-family: Poppins;
+  font-weight: 600;
+  line-height: 20px;
+  padding-top: 10px;
+}
+
+.homepage2-content {
+  display: grid;
+  justify-content: center;
+  padding-top: 5rem;
+}

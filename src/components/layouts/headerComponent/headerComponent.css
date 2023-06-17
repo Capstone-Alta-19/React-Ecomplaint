@@ -1,0 +1,30 @@
+@font-face {
+  font-family: Poppins;
+  src: url(../../../assets/font/Poppins-Regular.ttf);
+}
+
+* {
+  margin: 0px;
+  font-family: Poppins;
+}
+
+.headerLayout {
+  padding: 1rem 7rem;
+}
+
+.LogoImage {
+  width: 35%;
+  height: auto;
+}
+
+.headerMenu {
+  display: flex;
+  gap: 4rem;
+  padding: 1.5rem 10rem 0 1.5rem;
+  font-weight: 600;
+}
+
+.headerMenu > a > p {
+  padding-top: 5px;
+  color: #3c486b;
+}
