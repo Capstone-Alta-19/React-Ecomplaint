@@ -18,6 +18,8 @@ import Carousel3 from "./images/carousel3.svg";
 import Carousel4 from "./images/carousel4.svg";
 import Bell from "./images/Bell_pin.svg";
 import ImageAdmin from "./images/ImgSuperAdmin.svg";
+import Gembok from "./images/Lock.svg";
+import Pesan from "./images/Comments.svg";
 
 export {
   EComplain,
@@ -40,4 +42,6 @@ export {
   email,
   isiform,
   back,
+  Gembok,
+  Pesan
 };
