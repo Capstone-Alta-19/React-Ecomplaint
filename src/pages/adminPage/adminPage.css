@@ -1,0 +1,54 @@
+.layout-admin {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  background-color: #f0f0f0;
+  height: 100vh;
+  width: 100vw;
+}
+
+.content-admin {
+  margin: auto auto;
+}
+
+.input-label {
+  background-color: #f0f0f0;
+  border-radius: 5px 5px 0 0;
+  padding: 1vh 1vw;
+  font-family: Poppins;
+  font-weight: 600;
+}
+
+.form-admin {
+  background-color: #3c486b;
+  width: 35vw;
+  height: 65vh;
+  border-radius: 30px;
+}
+
+.form-admin > img {
+  width: 25vw;
+  height: auto;
+}
+
+.form-table {
+  width: 24.5vw;
+  height: 6vh;
+  border: none;
+  border-radius: 10px 10px 0 0;
+  font-family: PoppinsBold;
+}
+
+.form-button {
+  width: auto;
+  height: 5vh;
+  background-color: #636d89;
+  font-size: 16px;
+  border-radius: 30px;
+}
+
+.form-button > p {
+  font-size: 0.8vw;
+  height: auto;
+  width: 5vw;
+}
