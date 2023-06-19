@@ -47,9 +47,9 @@ const RouteManagement = () => {
             <Route path="/" element={<HomePage />} />
             <Route path="/homepagebantuan" element={<HomePageBantuan />} />
           </Routes>
-        </LayoutComponent>
+        </LayoutComponent> 
 
-        {/* <Routes>
+        <Routes>
           <Route path="/admin" element={<AdminPage />} />
         </Routes>
 
@@ -61,7 +61,7 @@ const RouteManagement = () => {
             <Route path="/tambahadmin" element={<TambahAdmin />} />
             <Route path="/pengaturan" element={<PengaturanAdmin />} />
           </Routes>
-        </LayoutComponentAdmin> */}
+        </LayoutComponentAdmin>
       </Suspense>
     </>
   );

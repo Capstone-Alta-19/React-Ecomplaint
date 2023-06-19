@@ -1,0 +1,28 @@
+.body-cat{
+    background-image: url("../../../assets/images/Desktop.png");
+    width: auto;
+    height: auto;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding-top: 400px ;
+    padding-left: 400px;
+}
+.image-46{
+    position:relative;
+    width: 240px;
+    height: 256px;
+  
+    
+    background: url("../../../assets/images/gplay.png");
+}
+
+.image-48{
+position: relative;
+width: 240px;
+height: 256px;
+
+
+background: url("../../../assets/images/appstore.png");
+}

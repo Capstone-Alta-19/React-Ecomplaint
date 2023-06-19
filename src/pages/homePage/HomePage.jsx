@@ -11,6 +11,7 @@ import Gap from "../../components/gap/Gap";
 import HomePage2 from "./syafi/HomePage2";
 import HomePage4 from "./abi/HomePage4";
 import { Col, Row, Carousel } from "antd";
+import HomePage3 from "./ziqo/HomePage3";
 
 const styleDefaults = {
   height: "auto",
@@ -63,14 +64,13 @@ const HomePage = () => {
           <HomePage2 />
         </div>
         <Gap height={150} />
-        {/* <div>
-          <HomePage3 />
-        </div> */}
-        <Gap height={175} />
         <div>
           <HomePage4 />
         </div>
-        <Gap height={200} />
+        <Gap height={50} />
+      </div>
+      <div>
+        <HomePage3 />
       </div>
     </>
   );
