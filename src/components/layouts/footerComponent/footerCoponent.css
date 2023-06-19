@@ -1,58 +1,41 @@
 .allfooter {
   background-color: #141414;
-  padding-top: 5vh;
-}
-
-.definisi {
   color: white;
-  padding-left: 100px;
 }
 
-.sisikanan p {
+.rowFooter {
+  display: flex;
+  justify-content: center;
+  gap: 25vw;
+}
+
+.col1-footer {
+  width: 500px;
+  text-align: left;
+}
+
+.footer-desc {
   font-size: 15px;
+  line-height: 20px;
 }
 
-.contactus {
-  color: white;
-  margin-top: -20px;
-}
-
-.contactus p {
-  font-size: 15px;
-  margin-bottom: 5px;
+.contact-Title {
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .gmail-footer {
   display: flex;
   align-items: center;
   gap: 20px;
-}
-
-.gmail-footer p {
-  font-size: 20px;
+  font-size: 15px;
+  font-weight: bold;
 }
 
 .wa-footer {
   display: flex;
   align-items: center;
   gap: 20px;
-}
-
-.wa-footer p {
-  font-size: 20px;
-}
-
-.wrap-unduh-footer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.h2-footer-unduh {
-  margin-bottom: -60px;
-  color: white;
-}
-
-.row2 {
-  justify-content: center;
+  font-size: 17px;
+  font-weight: bold;
 }

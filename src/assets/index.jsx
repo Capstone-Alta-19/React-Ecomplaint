@@ -6,9 +6,7 @@ import back from "./images/back.png";
 import EComplain from "./images/Ecomplainz.svg";
 import IconEcomplain from "./images/IconEcomplain.svg";
 import WhatAppIcon from "./images/CallWA.png";
-import GoogleplayIcon from "./images/gplay.png";
 import WAIcon from "./images/wa.png";
-import AppStore from "./images/appstore.png";
 import GmailIcon from "./images/gmail.png";
 import EcomplainzWhite from "./images/EcomplainzWhite.svg";
 import Complain from "./images/komplain.png";
@@ -25,9 +23,7 @@ export {
   EComplain,
   IconEcomplain,
   WhatAppIcon,
-  GoogleplayIcon,
   WAIcon,
-  AppStore,
   GmailIcon,
   EcomplainzWhite,
   Complain,
@@ -43,5 +39,5 @@ export {
   isiform,
   back,
   Gembok,
-  Pesan
+  Pesan,
 };
