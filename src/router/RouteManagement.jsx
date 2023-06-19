@@ -42,12 +42,12 @@ const RouteManagement = () => {
           </Routes>
         </LayoutComponentAdmin> */}
 
-        {/* <LayoutComponent>
+        <LayoutComponent>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/homepagebantuan" element={<HomePageBantuan />} />
           </Routes>
-        </LayoutComponent> */}
+        </LayoutComponent> 
 
         <Routes>
           <Route path="/admin" element={<AdminPage />} />
