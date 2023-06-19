@@ -34,10 +34,10 @@ const FooterComponent = () => {
             <img src={GmailIcon} width={45} height={45} />
             <p>complainzyuk@mail.co.id</p>
           </div>
-          <Gap height={25} />
+          <Gap height={10} />
 
           <div className="wa-footer">
-            <img src={WAIcon} width={45} height={45}></img>
+            <img src={WAIcon} width={80} />
             <p>+6282257665673</p>
           </div>
         </Col>

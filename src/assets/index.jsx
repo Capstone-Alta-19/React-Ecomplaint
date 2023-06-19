@@ -6,7 +6,7 @@ import back from "./images/back.png";
 import EComplain from "./images/Ecomplainz.svg";
 import IconEcomplain from "./images/IconEcomplain.svg";
 import WhatAppIcon from "./images/CallWA.png";
-import WAIcon from "./images/wa.png";
+import WAIcon from "./images/WAIcon.svg";
 import GmailIcon from "./images/gmail.png";
 import EcomplainzWhite from "./images/EcomplainzWhite.svg";
 import Complain from "./images/komplain.png";

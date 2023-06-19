@@ -9,16 +9,14 @@ import { Link } from "react-router-dom";
 const HomePage2 = () => {
   return (
     <div className="homepage-bantuan-master">
+      <Gap height={200} />
       <h1 className="about-bantuan">
         Perlu Bantuan ?
-        <a
-          href="https://wa.me/6282257665673"
-          target="_blank"
-          className="WAIICON-about"
-        >
-          <img src={WAIcon} />
+        <a href="https://wa.me/6282257665673" target="_blank">
+          <img src={WAIcon} height={120} />
         </a>
       </h1>
+      <Gap height={30} />
       <div className="content-quest">
         <div className="class-quest-bantu">
           <h2>Kami akan membantu</h2>

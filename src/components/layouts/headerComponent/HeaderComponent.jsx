@@ -15,7 +15,7 @@ const HeaderComponent = () => {
               <img src={EComplain} alt="E-Complain" className="LogoImage" />
             </Link>
           </Col>
-          <Col span={12}>
+          <Col>
             <div className="headerMenu">
               <a href="/">
                 <p>Home</p>

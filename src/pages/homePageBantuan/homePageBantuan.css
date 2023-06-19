@@ -1,6 +1,5 @@
 .homepage-bantuan-pages2 {
-  margin-top: 100px;
-  margin-bottom: 100px;
+  margin: 10vh;
 }
 .about-page-bantuan {
   color: #3c486b;
@@ -17,7 +16,7 @@
 .quest-page-bantuan {
   padding-left: 90px;
   border-radius: 20px;
-  width: 824px;
+  width: 60vw;
 }
 
 .quest-page-bantuan > div {
@@ -43,8 +42,8 @@
 }
 
 .WhatsApp-bantuan {
-  margin-left: 900px;
-  margin-top: 170px;
+  margin-left: 65vw;
+  margin-top: 25vh;
   position: absolute;
 }
 
