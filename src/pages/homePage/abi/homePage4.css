@@ -3,30 +3,28 @@
   font-family: PoppinsBold;
 }
 
-.contentMaster {
-  margin-top: 50px;
-}
-
-.title-privasi {
-  margin: 50px;
+.head-privasi {
+  margin-left: 14vw;
   font-family: PoppinsBold;
-  font-weight: bold;
   font-size: 40px;
-  width: 443px;
+  width: 450px;
   line-height: 40px;
-}
-
-.titleContentPriv {
-  font-family: PoppinsBold;
-  font-weight: bold;
-  font-size: 40px;
-}
-.paragrafContentPriv {
-  font-family: PoppinsBold;
-  
+  color: #3c486b;
 }
 
 .content-privasi {
-  width: 342px;
- 
+  width: 400px;
+}
+
+.titlePriv {
+  color: #3c486b;
+  font-family: PoppinsBold;
+  font-size: 45px;
+  padding-left: 10px;
+}
+
+.parafPriv {
+  padding-left: 15px;
+  color: #636d89;
+  font-size: 25px;
 }

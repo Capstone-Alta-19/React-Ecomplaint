@@ -2,42 +2,36 @@ import React from "react";
 import { Row, Col, Typography } from "antd";
 import "./homePage4.css";
 import { Gembok, Pesan } from "../../../assets";
+import Gap from "../../../components/gap/Gap";
 
 const HomePage4 = () => {
   return (
-    <div className="privasi">
-      <h1 className="title-privasi">
-        Privasi kalian adalah prioritas COMPLAINZ
-      </h1>
-      <Row justify="center" className="contentMaster">
-        <Col>
-          <Row align="middle">
-            <Col>
-              <img height={168} src={Gembok} alt="gembok" />
-            </Col>
-            <Col className="content-privasi">
-              <h1 className="titleContentPriv">Tetap Anonim</h1>
-              <h2 className="paragrafContentPriv">
-                Tidak ada yang mengetahui data kalian
-              </h2>
-            </Col>
-          </Row>
+    <>
+      <Gap height={100} />
+      <div>
+        <h1 className="head-privasi">
+          Privasi kalian adalah prioritas COMPLAINZ
+        </h1>
+      </div>
+      <Gap height={120} />
+
+      <Row justify={"center"}>
+        <img height={150} src={Gembok} alt="Gembok" />
+        <Col className="content-privasi">
+          <h1 className="titlePriv">Tetap Anonim</h1>
+          <h2 className="parafPriv">Tidak ada yang mengetahui data kalian</h2>
         </Col>
-        <Col>
-          <Row align="middle">
-            <Col>
-              <img height={168} src={Pesan} alt="gembok" />
-            </Col>
-            <Col className="content-privasi">
-              <h1 className="titleContentPriv">Tidak Berbagi </h1>
-              <h2 className="paragrafContentPriv">
-                Laporan tidak bisa di share jika bersifat privat/rahasia
-              </h2>
-            </Col>
-          </Row>
+
+        <Gap width={120} />
+        <img height={150} src={Pesan} alt="Pesan" />
+        <Col className="content-privasi">
+          <h1 className="titlePriv">Tidak Berbagi </h1>
+          <h2 className="parafPriv">
+            Laporan tidak bisa di share jika bersifat privat/ rahasia
+          </h2>
         </Col>
       </Row>
-    </div>
+    </>
   );
 };
 
