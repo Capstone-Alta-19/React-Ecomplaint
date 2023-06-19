@@ -1,17 +1,33 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./laporan.css";
 import { Col, Row, Input, Select, Table, Space, Tag, Modal } from "antd";
 import { data_table } from "./constant";
 import { SearchOutlined } from "@ant-design/icons";
+import { useGetDasboardTotal, useGetLaporan } from "./hooks/useAdminLaporan";
+import { useParams } from "react-router-dom";
 
-const onSearch = (value) => console.log(value);
+// const onSearch = (value) => console.log(value);
 
 const LaporanAdmin = () => {
+  const [sort, setSort] = useState("desc");
+  const [search, setSearch] = useState("");
+  const [limit, setLimit] = useState("");
+  const { type } = useParams();
+  const [body, setBody]  = useState();
+
+  const [isLoadingData, laporanData, getLaporanData] = useGetLaporan();
+  const [
+    isLoadingDashboardTotalData,
+    dashboardTotalData,
+    getDashboardTotalData,
+  ] = useGetDasboardTotal();
+  console.log({ laporanData });
+  console.log({body})
   const columns = [
     {
       title: "No",
-      dataIndex: "key",
-      key: "no",
+      dataIndex: "id",
+      key: "id",
       align: "center",
     },
     {
@@ -21,31 +37,37 @@ const LaporanAdmin = () => {
       align: "center",
       render: (_, { type }) => (
         <>
-          <Tag
-            color="#FAFF1E"
-            style={{ color: "#3C486B", borderRadius: "20px" }}
-          >
-            {type}
-          </Tag>
+          {type === "Complaint" ? (
+            <Tag
+              color="#FAFF1E"
+              style={{ color: "#3C486B", borderRadius: "20px" }}
+            >
+              {type}
+            </Tag>
+          ) : (
+            <Tag color="green" style={{ color: "green", borderRadius: "20px" }}>
+              {type}
+            </Tag>
+          )}
         </>
       ),
     },
     {
       title: "Categories",
-      dataIndex: "categories",
-      key: "categories",
+      dataIndex: "category",
+      key: "categoty",
       align: "center",
     },
     {
       title: "Tanggal",
-      dataIndex: "tanggal",
-      key: "tanggal",
+      dataIndex: "created_at",
+      key: "created_at",
       align: "center",
     },
     {
       title: "Isi",
-      dataIndex: "isi",
-      key: "isi",
+      dataIndex: "description",
+      key: "description",
       align: "center",
     },
     {
@@ -69,6 +91,14 @@ const LaporanAdmin = () => {
       ),
     },
   ];
+
+  useEffect(() => {
+    const page = "1";
+
+    getLaporanData(sort, type, search, page, limit);
+    getDashboardTotalData(body);
+  }, [type, sort, search, limit, body]);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const showModal = () => {
     setIsModalOpen(true);
@@ -79,13 +109,14 @@ const LaporanAdmin = () => {
   const handleCancel = () => {
     setIsModalOpen(false);
   };
-
   return (
     <>
       <Row justify="space-between">
         <div className="boxStyle">
-          <div className="centeredTextStyle">Total Laporan </div>
-          <div className="centeredTextStyletotal">20</div>
+          <div className="centeredTextStyle">
+            Total Laporan : {dashboardTotalData?.total}
+          </div>
+          {/* <div className="centeredTextStyletotal">20</div> */}
         </div>
 
         <div className="boxStyle">
@@ -102,28 +133,30 @@ const LaporanAdmin = () => {
           placeholder="Recently Added"
           options={[
             {
-              value: "lucy",
-              label: "Lucy",
+              value: "asc",
+              label: "Ascending",
             },
             {
-              value: "tom",
-              label: "Tom",
+              value: "desc",
+              label: "Descending",
             },
           ]}
+          onChange={(value) => {
+            setSort(value);
+          }}
         ></Select>
 
         <Input
           className="search"
           prefix={<SearchOutlined />}
           placeholder="input search text"
-          onSearch={onSearch}
+          // onSearch={onSearch}
         />
       </Row>
       <Table
-        
         columns={columns}
-        dataSource={data_table}
-        style={{ marginLeft: "20px",}}
+        dataSource={laporanData?.complaints}
+        style={{ marginLeft: "20px" }}
       />
       <Modal
         title="Basic Modal"

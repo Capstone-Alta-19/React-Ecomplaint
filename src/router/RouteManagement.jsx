@@ -56,7 +56,7 @@ const RouteManagement = () => {
         <LayoutComponentAdmin>
           <Routes>
             <Route path="/dashboard" element={<DashboardAdmin />} />
-            <Route path="/laporan" element={<LaporanAdmin />} />
+            <Route path="/laporan/:type" element={<LaporanAdmin />} />
             <Route path="/berita" element={<BeritaAdmin />} />
             <Route path="/tambahadmin" element={<TambahAdmin />} />
             <Route path="/pengaturan" element={<PengaturanAdmin />} />
