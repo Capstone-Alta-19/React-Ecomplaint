@@ -13,9 +13,13 @@ export const api = {
     );
   },
 
-  dashboardTotal: (body) => {
-    return baseAPI.get(
-      `/dashboard`
-    )
+  dashboardTotal: () => {
+    return baseAPI.get(`/dashboard`);
+  },
+
+  getLaporanById: (id, body) => {
+    return baseAPI.get(`/dashboard/complaint/${id}`, body)
   }
 };
+
+  
