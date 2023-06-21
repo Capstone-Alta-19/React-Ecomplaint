@@ -17,15 +17,15 @@ const HeaderComponent = () => {
           </Col>
           <Col>
             <div className="headerMenu">
-              <a href="/">
+              <Link to="/">
                 <p>Home</p>
-              </a>
-              <a href="/homepagebantuan">
+              </Link>
+              <Link to="/homepagebantuan">
                 <p>Bantuan</p>
-              </a>
-              <a href="#">
+              </Link>
+              <Link to="#">
                 <p>About Us</p>
-              </a>
+              </Link>
               <Select
                 placeholder="Pilih Bahasa"
                 bordered={false}

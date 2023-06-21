@@ -12,17 +12,13 @@ import HomePage2 from "./syafi/HomePage2";
 import HomePage4 from "./abi/HomePage4";
 import { Col, Row, Carousel } from "antd";
 import HomePage3 from "./ziqo/HomePage3";
-
-const styleDefaults = {
-  height: "auto",
-  color: "white",
-  fontSize: 100,
-  textAlign: "center",
-};
+import HeaderComponent from "./headerComponent/HeaderComponent";
+import FooterComponent from "./footerComponent/FooterComponent";
 
 const HomePage = () => {
   return (
-    <>
+    <div className="homePage">
+      <HeaderComponent />
       <div className="homepageLayout">
         <div className="homepageContent">
           <Row>
@@ -72,7 +68,8 @@ const HomePage = () => {
       <div>
         <HomePage3 />
       </div>
-    </>
+      <FooterComponent />
+    </div>
   );
 };
 

@@ -60,6 +60,7 @@ const LayoutComponentAdmin = ({ children }) => {
                   onClick={() => {
                     localStorage.removeItem("token");
                     navigate("/admin");
+                    window.location.reload();
                   }}
                   danger
                 >

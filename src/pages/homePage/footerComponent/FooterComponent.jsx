@@ -1,13 +1,12 @@
 import React from "react";
-import { Footer } from "antd/es/layout/layout";
 import { Col, Row } from "antd";
-import Gap from "../../gap/Gap";
-import { EcomplainzWhite, GmailIcon, WAIcon } from "../../../assets";
+import Gap from "../../../components/gap/Gap";
+import { EcomplainzWhite, GmailIcon, WAIcon } from "../../../assets/index";
 import "./footerCoponent.css";
 
 const FooterComponent = () => {
   return (
-    <Footer className="allfooter">
+    <div className="allfooter">
       <Gap height={150} />
 
       <Row className="rowFooter">
@@ -43,7 +42,7 @@ const FooterComponent = () => {
         </Col>
       </Row>
       <Gap height={100} />
-    </Footer>
+    </div>
   );
 };
 
