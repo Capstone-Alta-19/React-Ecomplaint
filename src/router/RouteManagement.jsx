@@ -10,9 +10,10 @@ import BeritaAdmin from "../pages/beritaAdmin/BeritaAdmin";
 import TambahAdmin from "../pages/tambahAdmin/TambahAdmin";
 import PengaturanAdmin from "../pages/pengaturanAdmin/PengaturanAdmin";
 import HomePageBantuan from "../pages/homePageBantuan/HomePageBantuan";
+import Cookies from "js-cookie";
 
 const RouteManagement = () => {
-  const token = localStorage.getItem("token");
+  const token = Cookies.get("token");
   const pathname = window.location.pathname;
 
   return (

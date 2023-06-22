@@ -1,6 +1,7 @@
 import { message } from "antd";
 import { useCallback, useState } from "react";
 import { api } from "../../../api";
+import Cookies from "js-cookie";
 
 export const useLogin = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -11,7 +12,7 @@ export const useLogin = () => {
       const res = await api.login(body);
 
       if (res) {
-        localStorage.setItem("token", res.data?.admin?.token);
+        Cookies.set("token", res.data?.admin?.token);
         message.open({
           type: "success",
           content: "Login Berhasil",
