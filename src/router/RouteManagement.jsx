@@ -8,9 +8,9 @@ import AdminPage from "../pages/adminPage/AdminPage";
 import LayoutComponentAdmin from "../components/layouts/LayoutComponentAdmin";
 import LaporanAdmin from "../pages/laporanAdmin/LaporanAdmin";
 import BeritaAdmin from "../pages/beritaAdmin/BeritaAdmin";
-import TambahAdmin from "../pages/tambahAdmin/TambahAdmin";
-import PengaturanAdmin from "../pages/pengaturanAdmin/PengaturanAdmin";
 import HomePageBantuan from "../pages/homePageBantuan/HomePageBantuan";
+import PengaturanAdmin from "../pages/pengaturanAdmin/PengaturanAdmin";
+import TambahAdmin from "../pages/tambahAdmin/TambahAdmin";
 
 const RouteManagement = () => {
   const token = localStorage.getItem("token");
@@ -39,17 +39,19 @@ const RouteManagement = () => {
             <Route path="/berita" element={<BeritaAdmin />} />
             <Route path="/tambahadmin" element={<TambahAdmin />} />
             <Route path="/pengaturan" element={<PengaturanAdmin />} />
+            <Route path="/pengaturanAdmin" element={<PengaturanAdmin />} />
+            <Route path="/tambahAdmin" element={<TambahAdmin />} />
           </Routes>
-        </LayoutComponentAdmin> */}
+        </LayoutComponentAdmin>
 
         <LayoutComponent>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/homepagebantuan" element={<HomePageBantuan />} />
           </Routes>
-        </LayoutComponent>
+        </LayoutComponent> */}
 
-        {/* <Routes>
+        <Routes>
           <Route path="/admin" element={<AdminPage />} />
         </Routes>
 
@@ -61,7 +63,7 @@ const RouteManagement = () => {
             <Route path="/tambahadmin" element={<TambahAdmin />} />
             <Route path="/pengaturan" element={<PengaturanAdmin />} />
           </Routes>
-        </LayoutComponentAdmin> */}
+        </LayoutComponentAdmin>
       </Suspense>
     </>
   );
