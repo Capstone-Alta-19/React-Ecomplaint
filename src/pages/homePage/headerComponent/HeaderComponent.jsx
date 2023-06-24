@@ -15,17 +15,17 @@ const HeaderComponent = () => {
               <img src={EComplain} alt="E-Complain" className="LogoImage" />
             </Link>
           </Col>
-          <Col span={12}>
+          <Col>
             <div className="headerMenu">
-              <a href="/">
+              <Link to="/">
                 <p>Home</p>
-              </a>
-              <a href="/homepagebantuan">
+              </Link>
+              <Link to="/homepagebantuan">
                 <p>Bantuan</p>
-              </a>
-              <a href="#">
+              </Link>
+              <Link to="#">
                 <p>About Us</p>
-              </a>
+              </Link>
               <Select
                 placeholder="Pilih Bahasa"
                 bordered={false}

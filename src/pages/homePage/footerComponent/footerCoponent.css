@@ -1,0 +1,41 @@
+.allfooter {
+  background-color: #141414;
+  color: white;
+}
+
+.rowFooter {
+  display: flex;
+  justify-content: center;
+  gap: 25vw;
+}
+
+.col1-footer {
+  width: 550px;
+}
+
+.footer-desc {
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.contact-Title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 15px;
+}
+
+.gmail-footer {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 15px;
+  font-weight: bold;
+  margin-left: 15px;
+}
+
+.wa-footer {
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  font-weight: bold;
+}
