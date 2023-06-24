@@ -27,7 +27,7 @@ import {
   useGetDashboard,
   useUpdateDashboard,
 } from "./hooks/useDashboard";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { INITIAL_TABLE_DATA } from "./constants";
 import CheckableTag from "antd/es/tag/CheckableTag";
 import { CSVDownload, CSVLink } from "react-csv";
@@ -134,11 +134,15 @@ const DetailKomplain = () => {
   return (
     <div className="body">
       <div className="body2">
+        <Link to="/dashboard" style={{
+          color: "black"
+        }}>
         <Space className="space-back">
           <img src={back}></img>
 
           <h1>Overview</h1>
         </Space>
+        </Link>
         <br></br>
         <br></br>
         <div className="searchbar">
