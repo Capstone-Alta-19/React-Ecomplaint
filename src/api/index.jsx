@@ -6,17 +6,6 @@ export const api = {
   login: (body) => {
     return baseAPI
       .post("/login/admin", body)
-
-      .then((response) => {
-        return localStorage.setItem("token", response.data.admin.token);
-      })
-      .then((data) => {
-        console.log(localStorage);
-      })
-      .catch((error) => {
-        // Handle any error that occurs during the API call
-        console.log(error);
-      });
   },
   dashboard: (sort, type, search, page, limit) => {
     return baseAPI.get(
