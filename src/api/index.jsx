@@ -6,6 +6,7 @@ export const api = {
   login: (body) => {
     return baseAPI
       .post("/login/admin", body)
+
   },
   dashboard: (sort, type, search, page, limit) => {
     return baseAPI.get(
