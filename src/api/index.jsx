@@ -15,7 +15,7 @@ export const api = {
     ;
     
   },
-  dashboardUpdate: (body,id) => {
+  dashboardUpdate: (id, body) => {
     return baseAPI.put(
       `/dashboard/complaint/${id}`, body
     )
