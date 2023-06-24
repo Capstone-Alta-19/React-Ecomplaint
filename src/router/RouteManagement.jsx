@@ -11,6 +11,8 @@ import BeritaAdmin from "../pages/beritaAdmin/BeritaAdmin";
 import TambahAdmin from "../pages/tambahAdmin/TambahAdmin";
 import PengaturanAdmin from "../pages/pengaturanAdmin/PengaturanAdmin";
 import HomePageBantuan from "../pages/homePageBantuan/HomePageBantuan";
+import DetailKomplain from "../pages/detail komplain/detailKomplain";
+import TambahBerita from "../pages/beritaAdmin/tambahBerita/TambahBerita";
 
 const RouteManagement = () => {
   const token = localStorage.getItem("token");
@@ -56,8 +58,10 @@ const RouteManagement = () => {
         <LayoutComponentAdmin>
           <Routes>
             <Route path="/dashboard" element={<DashboardAdmin />} />
+            <Route path="/dashboard-overview/:type" element={<DetailKomplain />} />
             <Route path="/laporan" element={<LaporanAdmin />} />
             <Route path="/berita" element={<BeritaAdmin />} />
+            <Route path="/tambah-berita" element={<TambahBerita />} />
             <Route path="/tambahadmin" element={<TambahAdmin />} />
             <Route path="/pengaturan" element={<PengaturanAdmin />} />
           </Routes>
