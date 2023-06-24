@@ -18,6 +18,7 @@ const AdminPage = () => {
   const onFinish = (values) => {
     login(values, () => {
       navigate("/dashboard");
+      window.location.reload();
     });
   };
 
@@ -29,7 +30,12 @@ const AdminPage = () => {
           <img src={EcomplainzWhite} alt="Ecomplain Icon" />
           <Gap height={100} />
 
-          <Form name="login-admin" form={form} onFinish={onFinish}>
+          <Form
+            name="login-admin"
+            form={form}
+            onFinish={onFinish}
+            autoComplete="off"
+          >
             <Text className="input-label">Username</Text>
             <Form.Item
               name="username"

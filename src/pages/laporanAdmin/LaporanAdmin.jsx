@@ -1,16 +1,29 @@
 import React, { useEffect, useState } from "react";
 import "./laporan.css";
-import { Col, Row, Input, Select, Table, Space, Tag, Modal } from "antd";
-import { data_table } from "./constant";
+import {
+  Col,
+  Row,
+  Input,
+  Select,
+  Table,
+  Space,
+  Tag,
+  Modal,
+  Form,
+  Button,
+} from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 import {
   useGetDashboardTotal,
   useGetLaporan,
   useGetLaporanById,
+  usePostFeedbackLaporan,
 } from "./hooks/useAdminLaporan";
 import { useParams } from "react-router-dom";
 
 const LaporanAdmin = () => {
+  const { TextArea } = Input;
+
   const [sort, setSort] = useState("desc");
   const [search, setSearch] = useState("");
   const [limit, setLimit] = useState("");
@@ -24,9 +37,9 @@ const LaporanAdmin = () => {
   ] = useGetDashboardTotal();
   const [isLoadingLaporanById, laporanById, getLaporanById] =
     useGetLaporanById();
-  console.log({ laporanById });
-  console.log({ laporanData });
-  console.log({ dashboardTotalData });
+
+  const [isloadingFeedbackLaporan, FeedbackLaporanData, postFeedBackLaporan] =
+    usePostFeedbackLaporan();
   const columns = [
     {
       title: "No",
@@ -89,7 +102,7 @@ const LaporanAdmin = () => {
       title: "Details",
       key: "operation",
       fixed: "right",
-      render: (_, record) => (
+      render: (record) => (
         <a onClick={() => showModal(record.id)}>View Details</a>
       ),
       align: "center",
@@ -117,7 +130,6 @@ const LaporanAdmin = () => {
 
     getLaporanData(sort, type, search, page, limit);
     getDashboardTotalData();
-    getLaporanById();
   }, [type, sort, search, limit]);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -125,10 +137,7 @@ const LaporanAdmin = () => {
 
   const showModal = (id) => {
     getLaporanById(id);
-    const laporan = laporanData?.complaints.find(
-      (laporan) => laporan.id === id
-    );
-    setSelectedLaporan(laporan);
+    setSelectedLaporan(laporanById?.complaint);
     setIsModalOpen(true);
   };
 
@@ -138,6 +147,20 @@ const LaporanAdmin = () => {
   const handleCancel = () => {
     setIsModalOpen(false);
     setSelectedLaporan(null);
+  };
+
+  const handleFeedback = (values) => {
+    const id = selectedLaporan?.id;
+    const page = "1";
+
+    postFeedBackLaporan(
+      id,
+      values,
+      () => {
+        getLaporanData(sort, type, search, page, limit);
+      },
+      [sort, type, search, limit]
+    );
   };
 
   return (
@@ -193,46 +216,89 @@ const LaporanAdmin = () => {
         dataSource={laporanData?.complaints}
         style={{ marginLeft: "20px" }}
       />
+
       <Modal
-        title="Basic Modal"
+        footer={null}
         open={isModalOpen}
         onOk={handleOk}
         onCancel={handleCancel}
       >
         {selectedLaporan && (
-          <>
-            <p>From : {selectedLaporan.full_name}</p>
-            <p>
-              Type :{" "}
+          <Form
+            className="formDetailData"
+            onFinish={handleFeedback}
+            layout="horizontal"
+            labelAlign="left"
+            labelCol={{
+              span: 6,
+            }}
+            // wrapperCol={{
+            //   span: 10,
+            // }}
+            colon={false}
+          >
+            <Form.Item label="From">{selectedLaporan.full_name}</Form.Item>
+            <Form.Item label="Type">
               {selectedLaporan.type === "Complaint" ? (
-            <Tag
-              color="#FAFF1E"
-              style={{
-                color: "#3C486B",
-                borderRadius: "20px",
-                fontWeight: "bold",
-              }}
+                <Tag
+                  color="#FAFF1E"
+                  style={{
+                    color: "#3C486B",
+                    borderRadius: "20px",
+                    fontWeight: "bold",
+                  }}
+                >
+                  {selectedLaporan.type}
+                </Tag>
+              ) : (
+                <Tag
+                  color="#A189FF"
+                  style={{
+                    color: "#3C486B",
+                    borderRadius: "20px",
+                    fontWeight: "bold",
+                  }}
+                >
+                  {selectedLaporan.type}
+                </Tag>
+              )}
+            </Form.Item>
+            <Form.Item label="Categories">{selectedLaporan.category}</Form.Item>
+            <Form.Item label="Tanggal">{selectedLaporan.created_at}</Form.Item>
+            <Form.Item label="Isi">{selectedLaporan.description}</Form.Item>
+            <Form.Item label="Attachment">
+              <img src={selectedLaporan.photo_url} style={{ maxWidth: 300 }} />
+            </Form.Item>
+            <Form.Item
+              label="Balasan"
+              name="description"
+              // onSubmit={onFeedback}
+              rules={[
+                {
+                  // required: true,
+                  message: "Please Input Your Name!",
+                },
+              ]}
             >
-              {selectedLaporan.type}
-            </Tag>
-          ) : (
-            <Tag
-              color="#A189FF"
-              style={{
-                color: "#3C486B",
-                borderRadius: "20px",
-                fontWeight: "bold",
-              }}
-            >
-              {selectedLaporan.type}
-            </Tag>
-          )}
-            </p>
-            <p>Categories : {selectedLaporan.category}</p>
-            <p>Tanggal : {selectedLaporan.created_at}</p>
-            <p>Isi : {selectedLaporan.description}</p>
-            <p>Attachment : {selectedLaporan.photo_url}</p>
-          </>
+              <TextArea
+                className="inputFeedback"
+                placeholder="Balas..."
+                autoSize={{
+                  minRows: 6,
+                  maxRows: 10,
+                }}
+              />
+            </Form.Item>
+            <Row justify="end">
+              <Button
+                type="primary"
+                htmlType="submit"
+                className="buttonFeedback"
+              >
+                Kirim
+              </Button>
+            </Row>
+          </Form>
         )}
       </Modal>
     </>

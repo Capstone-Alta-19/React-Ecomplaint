@@ -17,9 +17,11 @@ export const api = {
     return baseAPI.get(`/dashboard`);
   },
 
-  getLaporanById: (id, body) => {
-    return baseAPI.get(`/dashboard/complaint/${id}`, body)
-  }
-};
+  getLaporanById: (id) => {
+    return baseAPI.get(`/dashboard/complaint/${id}`);
+  },
 
-  
+  sendFeedback: (id, body) => {
+    return baseAPI.post(`/dashboard/complaint/${id}`, body);
+  },
+};

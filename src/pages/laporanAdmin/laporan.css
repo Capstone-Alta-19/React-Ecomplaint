@@ -21,7 +21,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* height: 100%; */
   font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
@@ -38,8 +37,22 @@
   border-radius: 20px;
 }
 
-/* laporan.css */
-.tableLaporan {
-  border-radius: 20px 20px 0 0 !important;
-  background-color: aqua;
+.formDetailData {
+  font-size: 32px;
+  font-weight: bolder;
+  color: #3c486b;
+  border-radius: 30px;
+}
+
+.inputFeedback {
+  position: relative;
+  background-color: #d8dae1;
+  border-radius: 30px;
+}
+.buttonFeedback {
+  position: absolute;
+  margin-top: -70px;
+  margin-right: 20px;
+  background-color: #3c486b;
+  border-radius: 4px;
 }

@@ -70,7 +70,6 @@ export const useGetDashboardTotal = () => {
         content: " Data berhasil dimuat",
       });
       setIsLoading(false);
-      // }
     } catch (err) {
       message.open({
         type: "error",
@@ -88,25 +87,17 @@ export const useGetLaporanById = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState();
 
-  const getLaporanById = useCallback(async (id, body )=> {
+  const getLaporanById = useCallback(async (id) => {
     try {
-      const res = await api.getLaporanById(id, body);
+      const res = await api.getLaporanById(id);
       if (res) {
         setData(res.data);
-        // onSuccess && onSuccess();
         message.open({
           type: "success",
           content: " Data berhasil dimuat",
         });
         setIsLoading(false);
       }
-      // setData(res.data);
-      // message.open({
-      //   type: "success",
-      //   content: " Data berhasil dimuat",
-      // });
-      // setIsLoading(false);
-      // // }
     } catch (err) {
       message.open({
         type: "error",
@@ -118,4 +109,32 @@ export const useGetLaporanById = () => {
   }, []);
 
   return [isLoading, data, getLaporanById];
+};
+
+export const usePostFeedbackLaporan = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [data, setData] = useState();
+
+  const createFeedback = useCallback(async (id, body) => {
+    try {
+      const res = await api.sendFeedback(id, body);
+      if (res) {
+        setData(res.data);
+        message.open({
+          type: "success",
+          content: " Feedback berhasil dikirim",
+        });
+        setIsLoading(false);
+      }
+    } catch (err) {
+      message.open({
+        type: "error",
+        content: `${err?.message}`,
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  }, []);
+
+  return [isLoading, data, createFeedback];
 };
