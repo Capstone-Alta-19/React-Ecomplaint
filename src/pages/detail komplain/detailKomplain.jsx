@@ -104,10 +104,11 @@ const DetailKomplain = () => {
     getDashboardData(status);
   };
   const onEdit = (values) => {
-    const id = rowData.id;
-    console.log(values)
-    updateDashboardData(id, values, () => {
-     
+    const id = rowData?.id
+   
+    updateDashboardData(id,values, () => {
+      console.log(values)
+      getDashboardData()
       handleCancel();
     });
  
@@ -126,7 +127,7 @@ const DetailKomplain = () => {
   useEffect(() => {
     const page = "1";
 
-    getDashboardData(sort, type, search, page, limit);
+    getDashboardData(sort, type, search, page, limit, );
     getCSVData(sort, type, search, limit);
   }, [type, sort, search]);
 
@@ -218,27 +219,47 @@ const DetailKomplain = () => {
           ]}
         >
           <Form.Item label="Status" name="status">
-            <Radio.Group>
-              <Radio.Button value="Pending">Pending</Radio.Button>
-              <Radio.Button value="Proccess"> Process</Radio.Button>
-              <Radio.Button value="Resolved"> Resolved </Radio.Button>
-            </Radio.Group>
+          <Select
+             
+              placeholder="Stats"
+              options={[
+                {
+                  value: "Pending",
+                  label: "Pending",
+                },
+                {
+                  value: "Process",
+                  label: "Proccess",
+                },
+                {
+                  value: "Resolved",
+                  label: "Resolved",
+                },
+              ]}
+             
+            ></Select>
           </Form.Item>
           <Form.Item
             label="Type"
             name="type"
-            rules={[
-              {
-                required: true,
-                message: "Please Select this",
-              },
-              {},
-            ]}
+
           >
-            <Radio.Group>
-              <Radio.Button value="Complaint">Complaint</Radio.Button>
-              <Radio.Button value="Aspiration"> Aspirasi </Radio.Button>
-            </Radio.Group>
+           <Select
+             
+             placeholder="Stats"
+             options={[
+               {
+                 value: "Complaint",
+                 label: "Complaint",
+               },
+               {
+                 value: "Aspiration",
+                 label: "Aspiration",
+               },
+              
+             ]}
+            
+           ></Select>
           </Form.Item>
           <Row justify={"space-between"}>
             <Button danger>Hapus</Button>
