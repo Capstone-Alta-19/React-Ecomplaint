@@ -31,7 +31,6 @@ import { Link, useParams } from "react-router-dom";
 import { INITIAL_TABLE_DATA } from "./constants";
 import CheckableTag from "antd/es/tag/CheckableTag";
 import { CSVDownload, CSVLink } from "react-csv";
-import { data_table } from "../laporanAdmin/constant";
 
 const DetailKomplain = () => {
   const [sort, setSort] = useState("desc");
