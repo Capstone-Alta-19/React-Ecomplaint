@@ -122,7 +122,11 @@ export const usePostFeedbackLaporan = () => {
         setData(res.data);
         message.open({
           type: "success",
-          content: " Feedback berhasil dikirim",
+          content: " Balasan berhasil dikirim",
+          style: {
+            backgroundColor: "#F9D949",
+            color: "#3C486B",
+          },
         });
         setIsLoading(false);
       }

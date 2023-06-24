@@ -26,7 +26,7 @@ const LaporanAdmin = () => {
 
   const [sort, setSort] = useState("desc");
   const [search, setSearch] = useState("");
-  const [limit, setLimit] = useState("");
+  const [limit, setLimit] = useState("100");
   const { type } = useParams();
 
   const [isLoadingData, laporanData, getLaporanData] = useGetLaporan();
@@ -141,9 +141,6 @@ const LaporanAdmin = () => {
     setIsModalOpen(true);
   };
 
-  const handleOk = () => {
-    setIsModalOpen(false);
-  };
   const handleCancel = () => {
     setIsModalOpen(false);
     setSelectedLaporan(null);
@@ -165,6 +162,7 @@ const LaporanAdmin = () => {
 
   return (
     <>
+      <h1 className="head-laporan">Laporan</h1>
       <Row justify="space-between">
         <div className="boxStyle">
           <div className="centeredTextStyle">
@@ -217,12 +215,7 @@ const LaporanAdmin = () => {
         style={{ marginLeft: "20px" }}
       />
 
-      <Modal
-        footer={null}
-        open={isModalOpen}
-        onOk={handleOk}
-        onCancel={handleCancel}
-      >
+      <Modal footer={null} open={isModalOpen} onCancel={handleCancel}>
         {selectedLaporan && (
           <Form
             className="formDetailData"
@@ -232,9 +225,6 @@ const LaporanAdmin = () => {
             labelCol={{
               span: 6,
             }}
-            // wrapperCol={{
-            //   span: 10,
-            // }}
             colon={false}
           >
             <Form.Item label="From">{selectedLaporan.full_name}</Form.Item>
@@ -267,7 +257,19 @@ const LaporanAdmin = () => {
             <Form.Item label="Tanggal">{selectedLaporan.created_at}</Form.Item>
             <Form.Item label="Isi">{selectedLaporan.description}</Form.Item>
             <Form.Item label="Attachment">
-              <img src={selectedLaporan.photo_url} style={{ maxWidth: 300 }} />
+              {(
+                <img
+                  src={selectedLaporan.photo_url}
+                  style={{ maxWidth: 300 }}
+                />
+              ) === null ? (
+                <video src={selectedLaporan.video_url} />
+              ) : (
+                <img
+                  src={selectedLaporan.photo_url}
+                  style={{ maxWidth: 300 }}
+                />
+              )}
             </Form.Item>
             <Form.Item
               label="Balasan"
