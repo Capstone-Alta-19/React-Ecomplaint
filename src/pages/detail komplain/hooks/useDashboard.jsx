@@ -17,7 +17,7 @@ export const useGetDashboard = () => {
         const res = await api.dashboard(sort, type, search, page, limit);
         if (res) {
           setData(res.data);
-          //onSuccess && onSuccess();
+          onSuccess && onSuccess();
           message.open({
             type: "success",
             content: " Data berhasil dimuat",
@@ -44,6 +44,7 @@ export const useUpdateDashboard = () => {
 
   const updateDashboardData = useCallback(async (id, body, onSuccess) => {
       try{
+          console.log(id)
           setIsLoading(true);
           await api.dashboardUpdate(id, body)
          onSuccess && onSuccess();
@@ -57,7 +58,9 @@ export const useUpdateDashboard = () => {
           message.open({
               type: 'success',
               content: 'berhasil update',
-            });
+             
+            })
+            console.log(id);
 
       }
       },[])

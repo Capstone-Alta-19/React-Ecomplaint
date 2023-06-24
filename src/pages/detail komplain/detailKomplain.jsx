@@ -59,6 +59,33 @@ const DetailKomplain = () => {
       title: "Type",
       dataIndex: "type",
       key: "type",
+      render: (_, { type }) => (
+        <>
+          {type === "Complaint" ? (
+            <Tag
+              color="#FAFF1E"
+              style={{
+                color: "#3C486B",
+                borderRadius: "20px",
+                fontWeight: "bold",
+              }}
+            >
+              {type}
+            </Tag>
+          ) : (
+            <Tag
+              color="#A189FF"
+              style={{
+                color: "#3C486B",
+                borderRadius: "20px",
+                fontWeight: "bold",
+              }}
+            >
+              {type}
+            </Tag>
+          )}
+        </>
+      ),
     },
     {
       title: "Categories",
@@ -104,21 +131,25 @@ const DetailKomplain = () => {
     getDashboardData(status);
   };
   const onEdit = (values) => {
-    const id = rowData?.id
-   
-    updateDashboardData(id,values, () => {
-      console.log(values)
-      getDashboardData()
+    const id = rowData?.id;
+    //  const type = rowData?.type
+    ///const status = rowData?.status
+    console.log(id);
+    const page = "1";
+
+    updateDashboardData(id, values, () => {
       handleCancel();
     });
- 
   };
+  const onDelete = () => {
+    const letid = rowData?.id;
+    const page = "1";
 
-  const handleDelete = (row_id) => {
-    deleteDashboardData(row_id, () => {
-      getDashboardData();
+    deleteDashboardData(letid, () => {
+      getDashboardData(sort, type, search, page, limit);
     });
   };
+
   const handleEdit = (rowData) => {
     console.log({ rowData });
     setRowData(rowData);
@@ -127,7 +158,7 @@ const DetailKomplain = () => {
   useEffect(() => {
     const page = "1";
 
-    getDashboardData(sort, type, search, page, limit, );
+    getDashboardData(sort, type, search, page, limit);
     getCSVData(sort, type, search, limit);
   }, [type, sort, search]);
 
@@ -223,8 +254,7 @@ const DetailKomplain = () => {
           ]}
         >
           <Form.Item label="Status" name="status">
-          <Select
-             
+            <Select
               placeholder="Stats"
               options={[
                 {
@@ -232,7 +262,7 @@ const DetailKomplain = () => {
                   label: "Pending",
                 },
                 {
-                  value: "Process",
+                  value: "Proccess",
                   label: "Proccess",
                 },
                 {
@@ -240,33 +270,27 @@ const DetailKomplain = () => {
                   label: "Resolved",
                 },
               ]}
-             
             ></Select>
           </Form.Item>
-          <Form.Item
-            label="Type"
-            name="type"
-
-          >
-           <Select
-             
-             placeholder="Stats"
-             options={[
-               {
-                 value: "Complaint",
-                 label: "Complaint",
-               },
-               {
-                 value: "Aspiration",
-                 label: "Aspiration",
-               },
-              
-             ]}
-            
-           ></Select>
+          <Form.Item label="Type" name="type">
+            <Select
+              placeholder="Type"
+              options={[
+                {
+                  value: "Complaint",
+                  label: "Complaint",
+                },
+                {
+                  value: "Aspiration",
+                  label: "Aspiration",
+                },
+              ]}
+            ></Select>
           </Form.Item>
           <Row justify={"space-between"}>
-            <Button danger>Hapus</Button>
+            <Button danger onClick={onDelete}>
+              Hapus
+            </Button>
             <Button htmlType="submit">Simpan</Button>
           </Row>
         </Form>
