@@ -1,3 +1,12 @@
+.head-laporan {
+  margin-left: 20px;
+  margin-top: 20px;
+  font-size: 48px;
+  font-weight:bolder;
+  font-family: PoppinsBold;
+  color: #3C486B;
+}
+
 .boxStyle {
   margin: 20px 0px 20px 20px;
   border-radius: 20px;
@@ -5,6 +14,7 @@
   padding: 20px;
   display: inline-block;
   width: 300px;
+  color: #3C486B;
 }
 
 .centeredTextStyle {
@@ -12,20 +22,21 @@
   align-items: center;
   justify-content: center;
   height: 100%;
-  font-family: "Poppins";
+  font-family: Poppins;
   font-style: normal;
   font-weight: 600;
   font-size: 25px;
+  color: #3C486B;
 }
 .centeredTextStyletotal {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* height: 100%; */
-  font-family: "Poppins";
+  font-family: Poppins;
   font-style: normal;
   font-weight: 600;
   font-size: 25px;
+  color: #3C486B;
 }
 
 .inputOption {
@@ -38,8 +49,22 @@
   border-radius: 20px;
 }
 
-/* laporan.css */
-.tableLaporan {
-  border-radius: 20px 20px 0 0 !important;
-  background-color: aqua;
+.formDetailData {
+  font-size: 32px;
+  font-weight: bolder;
+  color: #3c486b;
+  border-radius: 30px;
+}
+
+.inputFeedback {
+  position: relative;
+  background-color: #d8dae1;
+  border-radius: 30px;
+}
+.buttonFeedback {
+  position: absolute;
+  margin-top: -70px;
+  margin-right: 20px;
+  background-color: #3c486b;
+  border-radius: 4px;
 }

@@ -16,7 +16,6 @@ import TambahBerita from "../pages/beritaAdmin/tambahBerita/TambahBerita";
 
 import Cookies from "js-cookie";
 
-
 const RouteManagement = () => {
   const token = Cookies.get("token");
   const pathname = window.location.pathname;
@@ -31,18 +30,19 @@ const RouteManagement = () => {
           </Routes>
         ) : !token ? (
           <Routes>
-
             <Route path="/admin" element={<AdminPage />} />
-
           </Routes>
         ) : (
           <LayoutComponentAdmin>
             <Routes>
               <Route path="/dashboard" element={<DashboardAdmin />} />
-               <Route path="/dashboard-overview/:type" element={<DetailKomplain />} /> 
-                  <Route path="/berita" element={<BeritaAdmin />} />
-            <Route path="/tambah-berita" element={<TambahBerita />} />
-              <Route path="/laporan" element={<LaporanAdmin />} />
+              <Route
+                path="/dashboard-overview/:type"
+                element={<DetailKomplain />}
+              />
+              <Route path="/berita" element={<BeritaAdmin />} />
+              <Route path="/tambah-berita" element={<TambahBerita />} />
+              <Route path="/laporan/:type" element={<LaporanAdmin />} />
               <Route path="/berita" element={<BeritaAdmin />} />
               <Route path="/tambahadmin" element={<TambahAdmin />} />
               <Route path="/pengaturan" element={<PengaturanAdmin />} />

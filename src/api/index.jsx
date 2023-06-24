@@ -33,6 +33,24 @@ export const api = {
     )
     ;
   },
+
+  dashboard: (sort, type, search, page, limit) => {
+    return baseAPI.get(
+      `/dashboard/complaint?sort=${sort}&type=${type}&search=${search}&page=${page}&limit=${limit}`
+    );
+  },
+
+  dashboardTotal: () => {
+    return baseAPI.get(`/dashboard`);
+  },
+
+  getLaporanById: (id) => {
+    return baseAPI.get(`/dashboard/complaint/${id}`);
+  },
+
+  sendFeedback: (id, body) => {
+    return baseAPI.post(`/dashboard/complaint/${id}`, body);
+  },
   newsGet: () => {
     return baseAPI.get(
       `/news`
