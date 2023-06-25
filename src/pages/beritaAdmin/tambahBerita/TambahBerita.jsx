@@ -5,7 +5,7 @@ import "./tambahBerita.css";
 import { UploadOutlined } from "@ant-design/icons";
 
 import { useSingleUploader } from "../hooks/useSingleUploader";
-import React from 'react';
+
 
 const TambahBerita = () => {
  

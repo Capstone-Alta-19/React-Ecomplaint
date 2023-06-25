@@ -1,0 +1,17 @@
+.add-berita {
+    margin: 30px;
+    font-family: PoppinsBold;
+    /* font-size: ; */
+}
+
+.titlePage-berita {
+    margin-bottom: 20px;
+    font-size: 48px;
+    font-weight: 700;
+    font-family: PoppinsBold;
+    color: #3C486B;
+}
+
+.btnAddBerita {
+    align-items: end;
+}
