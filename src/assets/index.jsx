@@ -16,6 +16,7 @@ import Carousel3 from "./images/Carousel3.svg";
 import Carousel4 from "./images/Carousel4.svg";
 import Bell from "./images/Bell_pin.svg";
 import ImageAdmin from "./images/ImgSuperAdmin.svg";
+import User from "./images/User_alt.svg";
 import Gembok from "./images/Lock.svg";
 import Pesan from "./images/Comments.svg";
 
@@ -38,6 +39,7 @@ export {
   email,
   isiform,
   back,
+  User,
   Gembok,
   Pesan,
 };
