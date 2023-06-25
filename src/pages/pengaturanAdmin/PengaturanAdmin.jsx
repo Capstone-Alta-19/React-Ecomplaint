@@ -1,30 +1,32 @@
 import React, { useEffect, useState } from "react";
 import "./pengaturanAdmin.css";
 import { Button, Form, Input } from "antd";
-import { useGetAdmin } from "./hooks/usePengaturanAdmin";
+import { UseUpdateAdmin, useGetAdmin } from "./hooks/usePengaturanAdmin";
 import Gap from "../../components/gap/Gap";
 // import { useParams } from "react-router-dom";
 
 const PengaturanAdmin = () => {
-  const [body] = useState();
-  const [getAdmin] = useGetAdmin();
+  const [isLoading, data, getAdmin] = useGetAdmin();
+  const [isLoadingUpdateAdmin, updateAdmin] = UseUpdateAdmin();
 
-  const [rowData, setRowData] = useState();
+  const [body, rowData, setRowData] = useState();
+  // console.log(data);
+
+  const isEdit = (values) => {
+    console.log({ values });
+  };
 
   const onEdit = (values) => {
-    console.log({ values });
-    const id = rowData.id;
-
-    updateBiodata(id, values, () => {
+    // const id = rowData.id;
+    console.log(values);
+    updateAdmin(values, () => {
       getAdmin();
-      handleCancel();
     });
   };
 
-  // useEffect(() => {
-  //
-  //   useGetAdmin();
-  // }, []);
+  useEffect(() => {
+    getAdmin();
+  }, []);
 
   return (
     <>
@@ -34,7 +36,7 @@ const PengaturanAdmin = () => {
           className="formpengaturanadmin"
           autoComplete="off"
           layout="horizontal"
-          onFinish={onEdit}
+          onFinish={isEdit ? onEdit : onAdd}
           name="basic"
           colon={false}
           style={{
@@ -48,10 +50,21 @@ const PengaturanAdmin = () => {
           wrapperCol={{
             span: 14,
           }}
+          // initialValues={{ namepengaturan: data?.admin.name }}
+          fields={[
+            {
+              name: ["name"],
+              value: data?.admin.name,
+            },
+            {
+              name: ["username"],
+              value: data?.admin.username,
+            },
+          ]}
         >
           <Form.Item
             label="Nama"
-            name="nama"
+            name="name"
             rules={[
               {
                 required: true,
@@ -75,25 +88,11 @@ const PengaturanAdmin = () => {
             <Input />
           </Form.Item>
 
-          <Form.Item
-            label="Email"
-            name="email"
-            rules={[
-              {
-                required: true,
-                message: "Please input your Email!",
-                type: "email",
-              },
-            ]}
-          >
-            <Input />
-          </Form.Item>
-
           <div className="gantipasswd">Ganti Password</div>
           <Gap height={15} />
           <Form.Item
             label="Password Lama"
-            name="passwordlama"
+            name="old_password"
             rules={[
               {
                 required: true,
@@ -105,7 +104,7 @@ const PengaturanAdmin = () => {
           </Form.Item>
           <Form.Item
             label="Password Baru"
-            name="passwordbaru"
+            name="new_password"
             rules={[
               {
                 required: true,
@@ -117,7 +116,7 @@ const PengaturanAdmin = () => {
           </Form.Item>
           <Form.Item
             label="Konfirmasi Password Baru"
-            name="konfirmasipassword"
+            name="confirm_password"
             rules={[
               {
                 required: true,
@@ -138,6 +137,7 @@ const PengaturanAdmin = () => {
               type="primary"
               htmlType="submit"
               direction="vertical"
+              // loading={isLoadingUpdateAdmin}
               style={{
                 width: "80%",
                 backgroundColor: "#3C486B",

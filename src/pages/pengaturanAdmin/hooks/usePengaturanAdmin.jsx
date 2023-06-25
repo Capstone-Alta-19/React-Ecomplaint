@@ -26,54 +26,29 @@ export const useGetAdmin = () => {
   return [isLoading, data, getAdmin];
 };
 
-// export const useGetProfile = () => {
-//   const [isLoading, setIsLoading] = useState(false);
-//   const [data, setData] = useState();
+// Update ADMIN
+export const UseUpdateAdmin = () => {
+  const [isLoading, setIsLoading] = useState(false);
 
-//   const getData = useCallback(async () => {
-//     try {
-//       setIsLoading(true);
-//       const res = await api.getProfile();
-//       setData(res.data);
-//     } catch (err) {
-//       message.open({
-//         type: "error",
-//         content: `${err?.message}`,
-//       });
-//     } finally {
-//       setIsLoading(false);
-//     }
-//   }, []);
+  const updateData = useCallback(async (body, onSuccess) => {
+    try {
+      setIsLoading(true);
+      await api.updateAdmin(body);
+      onSuccess && onSuccess();
+      message.open({
+        type: "success",
+        content: "Berhasil update data",
+      });
+      setIsLoading(false);
+    } catch (err) {
+      message.open({
+        type: "error",
+        content: `${err?.message}`,
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  }, []);
 
-//   return [isLoading, data, getData];
-// };
-
-// export const useGetDasboardTotal = () => {
-//   const [isLoading, setIsLoading] = useState(false);
-//   const [data, setData] = useState();
-
-//     const getDashboardTotalData = useCallback(async (body) => {
-//       try {
-//         setIsLoading(true);
-//         const res = await api.dashboardTotal(body);
-//         if (res) {
-//           setData(res.data);
-//           onSuccess && onSuccess();
-//           message.open({
-//             type: "success",
-//             content: " Data berhasil dimuat",
-//           });
-//           setIsLoading(false);
-//         }
-//       } catch (err) {
-//         message.open({
-//           type: "error",
-//           content: `${err?.message}`,
-//         });
-//       } finally {
-//         setIsLoading(false);
-//       }
-//     }, []);
-
-//   return [isLoading, data, getDashboardTotalData];
-// };
+  return [isLoading, updateData];
+};

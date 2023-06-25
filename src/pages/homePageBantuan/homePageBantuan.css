@@ -1,70 +1,66 @@
-.homepage-bantuan-pages2{
-    margin-top: 100px;
-    margin-bottom: 100px;
+.homepageBantuan {
+  background-color: #d8dae1;
+}
+
+.homepage-bantuan-pages2 {
+  margin: 10vh;
 }
 .about-page-bantuan {
-    color: #3c486b;
-    font-size: 35px;
-    font-weight: bold;
-    font-family: PoppinsBold;
-    padding-left: 90px;
+  color: #3c486b;
+  font-size: 35px;
+  font-weight: bold;
+  font-family: PoppinsBold;
+  padding-left: 90px;
 }
 
 .tentang-teks {
-    padding-left: 90px;
-   
+  padding-left: 90px;
 }
 
 .quest-page-bantuan {
-    padding-left: 90px;
-    border-radius: 20px;
-    width: 824px;
-
+  padding-left: 90px;
+  border-radius: 20px;
+  width: 60vw;
 }
 
-.quest-page-bantuan>div {
-    padding: 5px 1px 15px 5px;
-
+.quest-page-bantuan > div {
+  padding: 5px 1px 15px 5px;
 }
 
-.quest-page-bantuan>h2 {
-    color: #3c486b;
-    text-align: left;
-    margin-left: 30px;
+.quest-page-bantuan > h2 {
+  color: #3c486b;
+  text-align: left;
+  margin-left: 30px;
 }
 .konten-bantuan {
-    font-family: Poppins;
-    color: black;
-    font-size: 15px;
-    font-weight: bold;
+  font-family: Poppins;
+  color: black;
+  font-size: 15px;
+  font-weight: bold;
 }
 
 .icon-bantuan {
-    text-align: right;
-    margin-top: -30px;
-    position: sticky;
+  text-align: right;
+  margin-top: -30px;
+  position: sticky;
 }
 
 .WhatsApp-bantuan {
-    margin-left: 900px;
-    margin-top: 170px;
-    position: absolute;
+  margin-left: 65vw;
+  margin-top: 25vh;
+  position: absolute;
 }
 
-.WhatsApp-bantuan>img {
-    height: auto;
-
+.WhatsApp-bantuan > img {
+  height: auto;
 }
 .pertanyaan-bantuan {
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    color: black;
-    font-size: 12px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  color: black;
+  font-size: 12px;
 }
 
 .WhatsApp-bantuan:hover .pertanyaan-bantuan {
-    opacity: 1;
+  opacity: 1;
 }
-
-
-

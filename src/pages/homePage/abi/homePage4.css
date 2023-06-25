@@ -1,13 +1,30 @@
-.homePage .section .content-1 .ant-typography {
-  color: rgb(67, 67, 131);
-  text-align: right;
+.privasi {
+  color: #3c486b;
   font-family: PoppinsBold;
 }
 
-/* Paragrap pakai Poppins, Header pakai PoppinsBold */
-
-.homePage .section .content-2 .ant-typography {
-  color: rgb(67, 67, 131);
-  text-align: left;
+.head-privasi {
+  margin-left: 260px;
   font-family: PoppinsBold;
+  font-size: 40px;
+  width: 450px;
+  line-height: 40px;
+  color: #3c486b;
+}
+
+.content-privasi {
+  width: 400px;
+}
+
+.titlePriv {
+  color: #3c486b;
+  font-family: PoppinsBold;
+  font-size: 45px;
+  padding-left: 10px;
+}
+
+.parafPriv {
+  padding-left: 15px;
+  color: #636d89;
+  font-size: 25px;
 }

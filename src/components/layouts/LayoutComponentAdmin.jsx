@@ -12,6 +12,7 @@ import {
   ContainerOutlined,
   FundOutlined,
 } from "@ant-design/icons";
+import Cookies from "js-cookie";
 
 const LayoutComponentAdmin = ({ children }) => {
   const { Content, Sider } = Layout;
@@ -58,8 +59,9 @@ const LayoutComponentAdmin = ({ children }) => {
                 <Button
                   type="primary"
                   onClick={() => {
-                    localStorage.removeItem("token");
+                    Cookies.remove("token");
                     navigate("/admin");
+                    window.location.reload();
                   }}
                   danger
                 >

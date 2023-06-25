@@ -1,43 +1,37 @@
-.homepage-bantuan-master{
- zoom: 100%;
- height: 300px;
- margin-left: 0px;
+.homepage-bantuan-master {
+  display: grid;
+  justify-items: center;
 }
 .about-bantuan {
   color: #3c486b;
-  font-size: 35px;
-  font-weight: bold;
+  font-size: 40px;
   font-family: PoppinsBold;
-  margin: 0rem 0rem 0rem -10rem;
-  
-}
-.WAIICON-about {
-  padding: 0px 150px 10px 600px;
-}
-
-.WAIcon-about>img {
-  border-radius: 20px;
-  width: auto;
-  height: auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 900px;
+  height: 8vh;
 }
 
-.class-quest-bantu{
+.about-bantuan > a > img {
+  margin-left: -10vw;
+}
+
+.class-quest-bantu {
   background-color: #f0f0f0;
   border-radius: 20px;
-  width: 824px;
+  width: 800px;
   height: 300px;
-  justify-content: left;
-  margin: 1rem 1rem 1rem -5rem;
+  padding: 20px;
 }
 
-.class-quest-bantu>h2 {
+.class-quest-bantu > h2 {
   color: #3c486b;
   text-align: left;
   margin-left: 30px;
   padding-top: 20px;
 }
 
-.bantuan-homepage1{
+.bantuan-homepage1 {
   margin-left: 30px;
   margin-right: 50px;
 }

@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./tambahAdmin.css";
-import { Button, Form, Input } from "antd";
+import { Button, Form, Input, Radio } from "antd";
 import { User } from "../../assets";
 import Gap from "../../components/gap/Gap";
 import { Row, Col } from "antd";
+import { usePostAdmin } from "./hooks/useTambahAdmin";
 
 const TambahAdmin = () => {
+  const [isLoadingCreateBiodata, createAdmin] = usePostAdmin();
+
+  const onAdd = (values) => {
+    console.log(values);
+    createAdmin(values, () => {});
+  };
+
   return (
     <>
       <div className="container-judul">
@@ -25,6 +33,7 @@ const TambahAdmin = () => {
           autoComplete="off"
           className="formtambahAdmin"
           layout="horizontal"
+          onFinish={onAdd}
           name="basic"
           colon={false}
           style={{
@@ -38,22 +47,14 @@ const TambahAdmin = () => {
             span: 14,
           }}
         >
-          <Form.Item label="Input Name" name="inputnama">
+          <Form.Item label="Input Name" name="name">
             <Input placeholder="input Name" />
           </Form.Item>
 
           <Form.Item label="Role" name="role">
-            <Button
-              type="primary"
-              htmlType="submit"
-              style={{
-                width: "30%",
-                backgroundColor: "#F7F2FA",
-                color: "black",
-              }}
-            >
-              admin
-            </Button>
+            <Radio.Group>
+              <Radio value="Admin">Admin</Radio>
+            </Radio.Group>
           </Form.Item>
 
           <Form.Item label="Input user name" name="username">

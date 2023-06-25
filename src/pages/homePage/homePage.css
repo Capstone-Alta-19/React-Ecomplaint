@@ -3,6 +3,10 @@
   src: url(../../assets/font/Poppins-Bold.ttf);
 }
 
+.homePage {
+  background-color: #d8dae1;
+}
+
 .homepageLayout {
   margin: 10rem 5rem;
 }

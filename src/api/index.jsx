@@ -1,4 +1,4 @@
-import { baseAPI } from "../config/apiService";
+import { baseAPI, newBaseAPIwithToken } from "../config/apiService";
 
 export const api = {
   //API
@@ -8,14 +8,14 @@ export const api = {
   },
 
   updateAdmin: (body) => {
-    return baseAPI.get(`/dashboard/admin`);
+    return newBaseAPIwithToken.put(`/dashboard/admin`, body);
   },
 
   createAdmin: (body) => {
-    return baseAPI.get(`/178.128.210.192:8080/dashboard/admin`);
+    return newBaseAPIwithToken.post(`dashboard/admin`, body);
   },
 
   getAdmin: () => {
-    return baseAPI.get(`/dashboard/admin`);
+    return newBaseAPIwithToken.get(`/dashboard/admin`);
   },
 };

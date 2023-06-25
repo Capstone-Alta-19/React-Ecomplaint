@@ -1,13 +1,19 @@
 import axios from "axios";
+import Cookies from "js-cookie";
 
 import { BASE_URL } from "../utils";
 
-const token =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJyb2xlIjoiU3VwZXIgQWRtaW4iLCJ1c2VySWQiOjF9.U5iQ3u6K6ugj4J_z7oARDvosIXzEOjIMiaxKnfu2H0c";
+const token = Cookies.get("token");
 
 export const baseAPI = axios.create({
   baseURL: BASE_URL.API,
   headers: {
     "Content-Type": "application/json",
+  },
+});
+export const newBaseAPIwithToken = axios.create({
+  baseURL: BASE_URL.API,
+  headers: {
+    Authorization: `Bearer ${token}`,
   },
 });
