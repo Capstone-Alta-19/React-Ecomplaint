@@ -36,7 +36,7 @@ const LayoutComponentAdmin = ({ children }) => {
               <FundOutlined />
               <p>Dashboard</p>
             </Link>
-            <Link to={"/laporan"} className="linkIcon">
+            <Link to={"/laporan/All"} className="linkIcon">
               <ContainerOutlined />
               <p>Laporan</p>
             </Link>

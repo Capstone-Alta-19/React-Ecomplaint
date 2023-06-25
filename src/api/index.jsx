@@ -6,7 +6,37 @@ export const api = {
   login: (body) => {
     return baseAPI.post("/login/admin", body);
   },
+  dashboard: (sort, type, search, page, limit) => {
+    return baseAPI.get(
+      `/dashboard/complaint?sort=${sort}&type=${type}&search=${search}&page=${page}&limit=${limit}`
+    );
+  },
+  dashboardUpdate: (id, body) => {
+    return baseAPI.put(`/dashboard/complaint/${id}`, body);
+  },
+  dashboardDelete: (id) => {
+    return baseAPI.delete(`/dashboard/complaint/${id}`);
+  },
+  getCSVData: (sort, type, search, limit) => {
+    return baseAPI.get(
+      `/dashboard/complaint/export?sort=${sort}&type=${type}&search=${search}&limit=${limit}`
+    );
+  },
 
+  dashboardTotal: () => {
+    return baseAPI.get(`/dashboard`);
+  },
+
+  getLaporanById: (id) => {
+    return baseAPI.get(`/dashboard/complaint/${id}`);
+  },
+
+  sendFeedback: (id, body) => {
+    return baseAPI.post(`/dashboard/complaint/${id}`, body);
+  },
+  newsGet: () => {
+    return baseAPI.get(`/news`);
+  },
   updateAdmin: (body) => {
     return newBaseAPIwithToken.put(`/dashboard/admin`, body);
   },
