@@ -1,4 +1,4 @@
-import { baseAPI } from "../config/apiService";
+import { baseAPI, newBaseAPI} from "../config/apiService";
 
 export const api = {
   //API
@@ -34,9 +34,13 @@ export const api = {
     ;
   },
   newsGet: () => {
-    return baseAPI.get(
-      `/news`
-    )
-    ;
-  }
+    return baseAPI.get(`/news`);
+  },
+  postBerita: (body) => {
+    return baseAPI.post(`/dashboard/news`,body)
+  },
+  uploader: (body) => {
+    return newBaseAPI.post("/upload", body);
+  },
+
 };
