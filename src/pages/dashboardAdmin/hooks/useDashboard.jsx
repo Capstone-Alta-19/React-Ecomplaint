@@ -2,35 +2,37 @@ import { useCallback, useState } from "react";
 import { api } from "../../../api";
 import { message } from "antd";
 
-export const useGetFilter = () => {
+export const useGetDashboard = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState();
 
-  const getDashbordFilterData = useCallback(async (sort, type, search, page, limit, onSuccess) => {
-    try {
-      setIsLoading(true);
-      const res = await api.dashboard(sort, type, search, page, limit);
-      if (res) {
-        setData(res.data)
-        onSuccess && onSuccess();
+  const getDashbordData = useCallback(
+    async (sort, type, search, page, limit, onSuccess) => {
+      try {
+        setIsLoading(true);
+        const res = await api.dashboard(sort, type, search, page, limit);
+        if (res) {
+          setData(res.data);
+          onSuccess && onSuccess();
+          message.open({
+            type: "success",
+            content: " Data berhasil dimuat",
+          });
+          setIsLoading(false);
+        }
+      } catch (err) {
         message.open({
-          type: "success",
-          content: " Data berhasil dimuat",
+          type: "error",
+          content: `${err?.message}`,
         });
+      } finally {
         setIsLoading(false);
       }
-    
-    } catch (err) {
-      message.open({
-        type: "error",
-        content: `${err?.message}`,
-      });
-    } finally {
-      setIsLoading(false);
-    }
-  }, []);
+    },
+    []
+  );
 
-  return [isLoading,data, getDashbordFilterData];
+  return [isLoading, data, getDashbordData];
 };
 
 export const useGetProfile = () => {
