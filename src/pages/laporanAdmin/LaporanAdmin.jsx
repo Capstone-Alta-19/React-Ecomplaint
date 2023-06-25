@@ -40,6 +40,7 @@ const LaporanAdmin = () => {
 
   const [isloadingFeedbackLaporan, FeedbackLaporanData, postFeedBackLaporan] =
     usePostFeedbackLaporan();
+
   const columns = [
     {
       title: "No",
@@ -125,6 +126,11 @@ const LaporanAdmin = () => {
     },
   ];
 
+  const handleSearch = (e) => {
+    const value = e.target.value;
+    setSearch(value);
+  };
+
   useEffect(() => {
     const page = "1";
 
@@ -205,8 +211,8 @@ const LaporanAdmin = () => {
         <Input
           className="search"
           prefix={<SearchOutlined />}
-          placeholder="input search text"
-          // onSearch={onSearch}
+          placeholder="Search"
+          onChange={handleSearch}
         />
       </Row>
       <Table

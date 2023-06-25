@@ -23,12 +23,6 @@ export const api = {
     );
   },
 
-  dashboard: (sort, type, search, page, limit) => {
-    return baseAPI.get(
-      `/dashboard/complaint?sort=${sort}&type=${type}&search=${search}&page=${page}&limit=${limit}`
-    );
-  },
-
   dashboardTotal: () => {
     return baseAPI.get(`/dashboard`);
   },
@@ -44,6 +38,6 @@ export const api = {
     return baseAPI.get(`/news`);
   },
   postBerita: (body) => {
-    return baseAPI.post(`/dashboard/news`,body)
-  }
+    return baseAPI.post(`/dashboard/news`, body);
+  },
 };
