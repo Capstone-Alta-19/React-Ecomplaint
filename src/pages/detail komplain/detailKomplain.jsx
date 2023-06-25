@@ -215,7 +215,7 @@ const DetailKomplain = () => {
           <Col>
             <Button className="SaveButton">
               <CSVLink
-                data={dataCSV ? dataCSV : data_table}
+                data={dataCSV ? dataCSV :INITIAL_TABLE_DATA}
                 filename="AllContent.csv"
                 target="_self"
               >
