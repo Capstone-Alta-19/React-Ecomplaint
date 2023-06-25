@@ -154,6 +154,11 @@ const DetailKomplain = () => {
     setRowData(rowData);
     setIsModalOpen(true);
   };
+
+  const handleSearch = (e) => {
+    const value = e.target.value;
+    setSearch(value);
+  };
   useEffect(() => {
     const page = "1";
 
@@ -164,14 +169,17 @@ const DetailKomplain = () => {
   return (
     <div className="body">
       <div className="body2">
-        <Link to="/dashboard" style={{
-          color: "black"
-        }}>
-        <Space className="space-back">
-          <img src={back}></img>
+        <Link
+          to="/dashboard"
+          style={{
+            color: "black",
+          }}
+        >
+          <Space className="space-back">
+            <img src={back}></img>
 
-          <h1>Overview</h1>
-        </Space>
+            <h1>Overview</h1>
+          </Space>
         </Link>
         <br></br>
         <br></br>
@@ -200,6 +208,7 @@ const DetailKomplain = () => {
               placeholder="Search"
               allowClear
               className="search-item"
+              onChange={handleSearch}
             />
           </Row>
         </div>
@@ -215,7 +224,7 @@ const DetailKomplain = () => {
           <Col>
             <Button className="SaveButton">
               <CSVLink
-                data={dataCSV ? dataCSV :INITIAL_TABLE_DATA}
+                data={dataCSV ? dataCSV : INITIAL_TABLE_DATA}
                 filename="AllContent.csv"
                 target="_self"
               >

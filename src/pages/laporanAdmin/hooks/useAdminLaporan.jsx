@@ -14,10 +14,10 @@ export const useGetLaporan = () => {
         if (res) {
           setData(res.data);
           onSuccess && onSuccess();
-          message.open({
-            type: "success",
-            content: " Data berhasil dimuat",
-          });
+          // message.open({
+          //   type: "success",
+          //   content: " Data berhasil dimuat",
+          // });
           setIsLoading(false);
         }
       } catch (err) {
@@ -65,10 +65,10 @@ export const useGetDashboardTotal = () => {
     try {
       const res = await api.dashboardTotal();
       setData(res.data);
-      message.open({
-        type: "success",
-        content: " Data berhasil dimuat",
-      });
+      // message.open({
+      //   type: "success",
+      //   content: " Data berhasil dimuat",
+      // });
       setIsLoading(false);
     } catch (err) {
       message.open({
@@ -92,10 +92,10 @@ export const useGetLaporanById = () => {
       const res = await api.getLaporanById(id);
       if (res) {
         setData(res.data);
-        message.open({
-          type: "success",
-          content: " Data berhasil dimuat",
-        });
+        // message.open({
+        //   type: "success",
+        //   content: " Data berhasil dimuat",
+        // });
         setIsLoading(false);
       }
     } catch (err) {

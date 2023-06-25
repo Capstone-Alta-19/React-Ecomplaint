@@ -11,7 +11,7 @@ import TambahAdmin from "../pages/tambahAdmin/TambahAdmin";
 import PengaturanAdmin from "../pages/pengaturanAdmin/PengaturanAdmin";
 import HomePageBantuan from "../pages/homePageBantuan/HomePageBantuan";
 
-import DetailKomplain from "../pages/detail komplain/detailKomplain";
+import DetailKomplain from "../pages/detailComplaint/detailKomplain";
 import TambahBerita from "../pages/beritaAdmin/tambahBerita/TambahBerita";
 
 import Cookies from "js-cookie";
