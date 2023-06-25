@@ -5,13 +5,19 @@ import { User } from "../../assets";
 import Gap from "../../components/gap/Gap";
 import { Row, Col } from "antd";
 import { usePostAdmin } from "./hooks/useTambahAdmin";
+import { useGetAdmin } from "../pengaturanAdmin/hooks/usePengaturanAdmin";
 
 const TambahAdmin = () => {
+  const [isLoading, data, getAdmin] = useGetAdmin();
   const [isLoadingCreateBiodata, createAdmin] = usePostAdmin();
+  const [form] = Form.useForm();
 
   const onAdd = (values) => {
     console.log(values);
-    createAdmin(values, () => {});
+    createAdmin(values, () => {
+      getAdmin();
+      form.resetFields();
+    });
   };
 
   return (
@@ -31,6 +37,7 @@ const TambahAdmin = () => {
         <Gap height={50} />
         <Form
           autoComplete="off"
+          form={form}
           className="formtambahAdmin"
           layout="horizontal"
           onFinish={onAdd}
