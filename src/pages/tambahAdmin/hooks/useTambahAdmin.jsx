@@ -27,3 +27,27 @@ export const usePostAdmin = () => {
 
   return [isLoading, createData];
 };
+
+export const useGetAdmin = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [data, setData] = useState();
+
+  const getAdmin = useCallback(async (body) => {
+    try {
+      const res = await api.getAdmin();
+      setData(res?.data);
+    } catch (err) {
+      message.open({
+        type: "error",
+        content: `${err?.message}`,
+      });
+    } finally {
+      setIsLoading(false);
+      message.open({
+        type: "success",
+        content: "Berhasil Fetching Data",
+      });
+    }
+  }, []);
+  return [isLoading, data, getAdmin];
+};
