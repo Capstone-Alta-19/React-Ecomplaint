@@ -3,11 +3,18 @@ import axios from "axios";
 import { BASE_URL } from "../utils";
 import Cookies from "js-cookie";
 
+const token = Cookies.get("token");
 
 export const baseAPI = axios.create({
   baseURL: BASE_URL.API,
   headers: {
     "Content-Type": "application/json",
-    Authorization: "Bearer " + Cookies.get("token")
+    Authorization: "Bearer " + Cookies.get("token"),
+  },
+});
+export const newBaseAPIwithToken = axios.create({
+  baseURL: BASE_URL.API,
+  headers: {
+    Authorization: `Bearer ${token}`,
   },
 });
