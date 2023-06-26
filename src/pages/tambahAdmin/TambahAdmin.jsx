@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from "react";
-import "./tambahAdmin.css";
 import { Button, Form, Input, Radio } from "antd";
 import { User } from "../../assets";
 import Gap from "../../components/gap/Gap";
-import { Row, Col } from "antd";
 import { usePostAdmin } from "./hooks/useTambahAdmin";
 import { useGetAdmin } from "../pengaturanAdmin/hooks/usePengaturanAdmin";
+import style from "./tambahAdmin.module.css";
 
 const TambahAdmin = () => {
   const [isLoading, data, getAdmin] = useGetAdmin();
@@ -13,7 +11,6 @@ const TambahAdmin = () => {
   const [form] = Form.useForm();
 
   const onAdd = (values) => {
-    console.log(values);
     createAdmin(values, () => {
       getAdmin();
       form.resetFields();
@@ -21,41 +18,34 @@ const TambahAdmin = () => {
   };
 
   return (
-    <>
-      <div className="container-judul">
-        <div>
-          <Row className="judulteks">
-            <Col span={3}>
-              <img src={User} />
-            </Col>
-            <Col span={10}>
-              <div className="coladmin">Tambah Admin</div>
-            </Col>
-          </Row>
+    <div className={style.layout}>
+      <div className={style.container}>
+        <div className={style.tambahAdmin}>
+          <img src={User} />
+          <p>Tambah Admin</p>
         </div>
 
-        <Gap height={50} />
+        <Gap height={60} />
         <Form
           autoComplete="off"
           form={form}
-          className="formtambahAdmin"
           layout="horizontal"
           onFinish={onAdd}
           name="basic"
           colon={false}
           style={{
-            width: "600px",
+            width: "800px",
           }}
           labelAlign="left"
           labelCol={{
-            span: 12,
+            span: 8,
           }}
           wrapperCol={{
             span: 14,
           }}
         >
           <Form.Item label="Input Name" name="name">
-            <Input placeholder="input Name" />
+            <Input placeholder="Input Name" />
           </Form.Item>
 
           <Form.Item label="Role" name="role">
@@ -64,7 +54,7 @@ const TambahAdmin = () => {
             </Radio.Group>
           </Form.Item>
 
-          <Form.Item label="Input user name" name="username">
+          <Form.Item label="Input User Name" name="username">
             <Input placeholder="Input User name" />
           </Form.Item>
 
@@ -72,9 +62,10 @@ const TambahAdmin = () => {
             <Input.Password placeholder="Input Password" />
           </Form.Item>
 
+          <Gap height={30} />
           <Form.Item
             wrapperCol={{
-              offset: 5,
+              offset: 7,
               span: 14,
             }}
           >
@@ -84,7 +75,7 @@ const TambahAdmin = () => {
               direction="vertical"
               className="buttonTambahAdmin"
               style={{
-                width: "100%",
+                width: "75%",
                 backgroundColor: "#3C486B",
               }}
             >
@@ -93,7 +84,7 @@ const TambahAdmin = () => {
           </Form.Item>
         </Form>
       </div>
-    </>
+    </div>
   );
 };
 
