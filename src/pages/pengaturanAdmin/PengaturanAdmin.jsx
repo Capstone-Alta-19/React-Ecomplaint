@@ -6,6 +6,7 @@ import styles from "./pengaturanAdmin.module.css";
 import LoadingComponent from "../../components/loadingComponent/LoadingComponent";
 
 const PengaturanAdmin = () => {
+  const [form] = Form.useForm();
   const [isLoading, data, getAdmin] = useGetAdmin();
   const [isLoadingUpdateAdmin, updateAdmin] = UseUpdateAdmin();
   const isEdit = (values) => {};
@@ -13,6 +14,7 @@ const PengaturanAdmin = () => {
   const onEdit = (values) => {
     updateAdmin(values, () => {
       getAdmin();
+      form.resetFields();
     });
   };
 
@@ -27,6 +29,7 @@ const PengaturanAdmin = () => {
       ) : (
         <div className={styles.pengaturan}>
           <Form
+            form={form}
             className={styles.form}
             autoComplete="off"
             layout="horizontal"
@@ -105,6 +108,7 @@ const PengaturanAdmin = () => {
                   required: true,
                   message: "Please input your password baru!",
                 },
+                { min: 7 },
               ]}
             >
               <Input.Password />
@@ -117,6 +121,7 @@ const PengaturanAdmin = () => {
                   required: true,
                   message: "Please input your password baru!",
                 },
+                { min: 7 },
               ]}
             >
               <Input.Password />
