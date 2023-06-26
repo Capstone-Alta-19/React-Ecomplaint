@@ -40,7 +40,11 @@ export const api = {
     return baseAPI.post(`/dashboard/news`,body)
   },
   uploader: (body) => {
-    return newBaseAPI.post("/upload", body);
+    return newBaseAPI.post("/upload", body, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      }
+    });
   },
 
 };

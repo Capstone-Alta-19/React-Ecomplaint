@@ -1,39 +1,90 @@
-import { Button, Form, Input, Radio, Select, Upload } from "antd";
+import {
+  Button,
+  Form,
+  Input,
+  Radio,
+  Select,
+  Space,
+  Typography,
+  Upload,
+} from "antd";
 import { React, useState } from "react";
 import { useGetBerita, usePostBerita } from "../hooks/useBerita";
 import "./tambahBerita.css";
 import { UploadOutlined } from "@ant-design/icons";
 
-import { useSingleUploader } from "../hooks/useSingleUploader";
-
+import { useUpload } from "../hooks/useUpload";
+import { BASE_URL } from "../../../utils";
+import { baseAPI } from "../../../config/apiService";
+import axios from "axios";
+import Cookies from "js-cookie";
 
 const TambahBerita = () => {
- 
-  const [isLoadingUpload, uploadFile] = useSingleUploader();
+  const [isLoadingUpload, fileURLData, uploadFile] = useUpload();
   const [isloadingAddBerita, AddBerita, postAddBerita] = usePostBerita();
   const [isLoadingBerita, dataBerita, getBeritaData] = useGetBerita();
   const { TextArea } = Input;
-  const [avatar, setAvatar] = useState();
-  
-  const postBerita = (body) => {
-    console.log(body);
-    const photos = body.photo_url;
-    uploadFile(photos);
+  const [avatar, setAvatar] = useState(fileURLData);
 
-    postAddBerita(body, () => {
+  const postBerita = (body) => {
+    // console.log(body);
+    // const photos = body.photo_url;
+    console.log(fileURLData);
+    const value = {
+      news_name: body.news_name,
+      photo_url: fileURLData,
+      category_id: body.category_id,
+      description: body.description,
+    };
+    console.log(value);
+    postAddBerita(value, () => {
       getBeritaData();
     });
   };
+  const [files, setFiles] = useState({});
+  const handleUpload = async (file) => {
+    await uploadFile(file.file.originFileObj);
+    //   console.log({files})
+    //   setFiles(pre=>{
+    //     return {...pre,[file.uid]:file}
 
-  const handleUpload = async (data) => {
-    uploadFile((data) => {
-      setAvatar(data.url);
-    });
+    //   })
+    //   const getFileObject = (progress) => {
+    //     return {
+    //       name: data.name,
+    //       uid: data.uid,
+    //       progress: progress
+    //     }
+    //   }
+
+    // axios.post("http://178.128.210.192:8080/upload", file,
+
+    // {
+    //   headers: {
+    //     "Content-Type": "multipart/form-data",
+    //     Authorization: "Bearer " + Cookies.get("token")
+    //   },
+
+    //   onUploadProgress: (event) => {
+    //     console.log(event)
+    //     setFiles((pre)=>{
+    //       return {...pre,[file.uid]:getFileObject(event.progress)}
+
+    //     })
+    //   }
+    // })
   };
 
   console.log(avatar);
   return (
     <div className="add-berita">
+      {Object.values(files).map((file, index) => {
+        return (
+          <Space>
+            <Typography>{file.name}</Typography>
+          </Space>
+        );
+      })}
       <h1 className="titlePage-berita">Add Berita</h1>
       <Form
         className="formDetailData"
@@ -114,15 +165,14 @@ const TambahBerita = () => {
           />
         </Form.Item>
         <Form.Item name="photo_url">
-          <Upload
+          {fileURLData? <img src={fileURLData} /> :  <Upload
             showUploadList={false}
-            name="photo_url"
             maxCount={1}
+            customRequest={() => {}}
             onRemove={() => {
               setAvatar("");
             }}
-            type="file"
-            customRequest={() => {}}
+            type="picture-list"
             onChange={handleUpload}
           >
             <Button
@@ -131,7 +181,9 @@ const TambahBerita = () => {
             >
               {avatar ? "Change Avatar" : "Upload Avatar"}
             </Button>
-          </Upload>
+          </Upload>}
+         
+          
         </Form.Item>
         <Button type="primary" htmlType="submit" className="btnAddBerita">
           Kirim
