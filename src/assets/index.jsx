@@ -19,6 +19,7 @@ import ImageAdmin from "./images/ImgSuperAdmin.svg";
 import User from "./images/User_alt.svg";
 import Gembok from "./images/Lock.svg";
 import Pesan from "./images/Comments.svg";
+import UploadImg from "./images/Img_box.svg";
 
 export {
   EComplain,
@@ -42,4 +43,5 @@ export {
   User,
   Gembok,
   Pesan,
+  UploadImg,
 };

@@ -14,10 +14,6 @@ export const useGetDashboard = () => {
         if (res) {
           setData(res.data);
           onSuccess && onSuccess();
-          message.open({
-            type: "success",
-            content: " Data berhasil dimuat",
-          });
           setIsLoading(false);
         }
       } catch (err) {
@@ -51,10 +47,6 @@ export const useUpdateDashboard = () => {
       });
     } finally {
       setIsLoading(false);
-      message.open({
-        type: "success",
-        content: "berhasil update",
-      });
       console.log(id);
     }
   }, []);
@@ -91,18 +83,12 @@ export const useGetCSV = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState();
 
-  const getCSV = useCallback(async (sort, type, search, limit, onSuccess) => {
+  const getCSV = useCallback(async (sort, type, search, limit) => {
     try {
       setIsLoading(true);
       const res = await api.getCSVData(sort, type, search, limit);
       if (res) {
         setData(res.data);
-
-        //onSuccess && onSuccess();
-        message.open({
-          type: "success",
-          content: " Data berhasil dimuat",
-        });
         setIsLoading(false);
       }
     } catch (err) {
