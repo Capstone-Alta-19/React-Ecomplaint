@@ -1,43 +1,73 @@
-import { Button, Card, Collapse, Divider, Row } from "antd";
-import React, { Children, useEffect } from "react";
-import "./style.css";
+import { Button, Card, Collapse, Row, Pagination, Table, List } from "antd";
+import React, { useEffect } from "react";
 import { useGetBerita } from "./hooks/useBerita";
 import { PlusSquareOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
+import styles from "./beritaAdmin.module.css";
+import Gap from "../../components/gap/Gap";
+import LoadingComponent from "../../components/loadingComponent/LoadingComponent";
+
 const BeritaAdmin = () => {
   const [isLoadingBerita, dataBerita, getBeritaData] = useGetBerita();
-  console.log(dataBerita);
+
   useEffect(() => {
     getBeritaData();
   }, []);
 
   return (
     <>
-    
-    <Row align={"center"}>
-      <Link to="/tambah-berita"><Button className="berita-padding tambah_berita_button"> <h5>Tambah Berita</h5> <PlusSquareOutlined /></Button></Link>
-      </Row>
-      <Card className="berita-padding">
-        {dataBerita?.map((data) => (
-          <Collapse className="accordion"
-          expandIconPosition="end"
-            items={[
-              {
-                key: data.ID,
-                label: <h5>Super Admin: {data.admin_id}</h5>,
-                children: (
-                  <div>
-                    <Row justify={"space-between"} className="underlined_text"><div>{data.news_name} </div><div className="div_left">{data.CreatedAt}</div></Row>
+      {isLoadingBerita ? (
+        <LoadingComponent />
+      ) : (
+        <div className={styles.layout}>
+          <div className={styles.button}>
+            <Link to="/tambah-berita">
+              <Button
+                style={{
+                  backgroundColor: "#3c486b",
+                  border: "0",
+                  fontSize: "1vw",
+                  color: "white",
+                }}
+              >
+                Tambah Berita <PlusSquareOutlined />
+              </Button>
+            </Link>
+          </div>
 
-
-                  </div>
-                ),
-              },
-            ]}
-          />
-        ))}
-        
-      </Card>
+          <Gap height={30} />
+          <div className={styles.container}>
+            <List
+              className={styles.list}
+              pagination={{
+                pageSize: "10",
+              }}
+              dataSource={dataBerita}
+              renderItem={(item) => (
+                <Collapse
+                  className={styles.collapse}
+                  expandIconPosition="end"
+                  items={[
+                    {
+                      key: item.ID,
+                      label: <h5>Super Admin: {item.admin_id}</h5>,
+                      children: (
+                        <Row
+                          justify={"space-between"}
+                          className={styles.underline}
+                        >
+                          <div>{item.news_name} </div>
+                          <div>{item.CreatedAt}</div>
+                        </Row>
+                      ),
+                    },
+                  ]}
+                />
+              )}
+            />
+          </div>
+        </div>
+      )}
     </>
   );
 };
