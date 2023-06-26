@@ -29,7 +29,6 @@ export const useGetAdmin = () => {
 // Update ADMIN
 export const UseUpdateAdmin = () => {
   const [isLoading, setIsLoading] = useState(false);
-
   const updateData = useCallback(async (body, onSuccess) => {
     try {
       setIsLoading(true);
