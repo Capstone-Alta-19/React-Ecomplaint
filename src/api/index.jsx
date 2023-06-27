@@ -1,4 +1,4 @@
-import { baseAPI, newBaseAPIwithToken } from "../config/apiService";
+import { baseAPI, newBaseAPI} from "../config/apiService";
 
 export const api = {
   //API
@@ -38,14 +38,25 @@ export const api = {
     return baseAPI.get(`/news`);
   },
   updateAdmin: (body) => {
-    return newBaseAPIwithToken.put(`/dashboard/admin`, body);
+    return newBaseAPI.put(`/dashboard/admin`, body);
   },
 
   createAdmin: (body) => {
-    return newBaseAPIwithToken.post(`dashboard/admin`, body);
+    return newBaseAPI.post(`dashboard/admin`, body);
   },
 
   getAdmin: () => {
-    return newBaseAPIwithToken.get(`/dashboard/admin`);
+    return newBaseAPI.get(`/dashboard/admin`);
   },
+  postBerita: (body) => {
+    return baseAPI.post(`/dashboard/news`,body)
+  },
+  uploader: (body) => {
+    return newBaseAPI.post("/upload", body, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      }
+    });
+  },
+
 };

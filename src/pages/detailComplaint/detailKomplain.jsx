@@ -104,6 +104,7 @@ const DetailKomplain = () => {
     {
       title: "Status",
       dataIndex: "status",
+      key: "status",
       render: (stats) => (
         <>
           <Tag
@@ -118,6 +119,7 @@ const DetailKomplain = () => {
     {
       title: "Action",
       dataIndex: "action",
+      key: 1,
       fixed: "right",
       render: (_, record) => <a onClick={() => handleEdit(record)}>Edit</a>,
     },
@@ -131,12 +133,11 @@ const DetailKomplain = () => {
   };
   const onEdit = (values) => {
     const id = rowData?.id;
-    //  const type = rowData?.type
-    ///const status = rowData?.status
     console.log(id);
     const page = "1";
 
     updateDashboardData(id, values, () => {
+      getDashboardData(sort, type, search, page, limit);
       handleCancel();
     });
   };
@@ -216,6 +217,8 @@ const DetailKomplain = () => {
         <br></br>
         <Table
           className="table-one"
+          rowKey={dashboardData?.complaints.id}
+          key={dashboardData?.complaints.id}
           dataSource={dashboardData?.complaints}
           columns={TABLE_COLUMNS}
         ></Table>

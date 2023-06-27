@@ -9,12 +9,14 @@ export const baseAPI = axios.create({
   baseURL: BASE_URL.API,
   headers: {
     "Content-Type": "application/json",
+
     Authorization: "Bearer " + Cookies.get("token"),
   },
 });
-export const newBaseAPIwithToken = axios.create({
+
+export const newBaseAPI = axios.create({
   baseURL: BASE_URL.API,
   headers: {
-    Authorization: `Bearer ${token}`,
+    Authorization: "Bearer " + Cookies.get("token"),
   },
 });
