@@ -14,13 +14,32 @@ import {
 } from "@ant-design/icons";
 import Cookies from "js-cookie";
 import { useGetNotif } from "./hooks/useNotif";
+import "./Layout.css";
 
 const LayoutComponentAdmin = ({ children }) => {
   const { Content, Sider } = Layout;
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
-
   const [isLoading, data, getNotif] = useGetNotif();
+
+  const [selected, setSelected] = useState("dashboard");
+  const path = window.location.pathname;
+
+  useEffect(() => {
+    if (path === "/dashboard") {
+      setSelected("dashboard");
+    } else if (path === "/laporan/All") {
+      setSelected("laporan");
+    } else if (path === "/berita") {
+      setSelected("berita");
+    } else if (path === "/tambahadmin") {
+      setSelected("tambahadmin");
+    } else if (path === "/pengaturan") {
+      setSelected("pengaturan");
+    } else {
+      setSelected("");
+    }
+  }, [path]);
 
   return (
     <>
@@ -48,24 +67,54 @@ const LayoutComponentAdmin = ({ children }) => {
 
             <Link to={"/dashboard"} className={styles.icon}>
               <FundOutlined />
-              <p>Dashboard</p>
+              <p
+                className={`link ${
+                  selected === "dashboard" ? "selectedHeader" : ""
+                }`}
+              >
+                Dashboard
+              </p>
             </Link>
 
             <Link to={"/laporan/All"} className={styles.icon}>
               <ContainerOutlined />
-              <p>Laporan</p>
+              <p
+                className={`link ${
+                  selected === "laporan" ? "selectedHeader" : ""
+                }`}
+              >
+                Laporan
+              </p>
             </Link>
             <Link to={"/berita"} className={styles.icon}>
               <ReadOutlined />
-              <p>Berita</p>
+              <p
+                className={`link ${
+                  selected === "berita" ? "selectedHeader" : ""
+                }`}
+              >
+                Berita
+              </p>
             </Link>
             <Link to={"/tambahadmin"} className={styles.icon}>
               <UsergroupAddOutlined />
-              <p>Tambah Admin</p>
+              <p
+                className={`link ${
+                  selected === "tambahadmin" ? "selectedHeader" : ""
+                }`}
+              >
+                Tambah Admin
+              </p>
             </Link>
             <Link to={"/pengaturan"} className={styles.icon}>
               <ControlOutlined />
-              <p>Pengaturan</p>
+              <p
+                className={`link ${
+                  selected === "pengaturan" ? "selectedHeader" : ""
+                }`}
+              >
+                Pengaturan
+              </p>
             </Link>
           </div>
 
