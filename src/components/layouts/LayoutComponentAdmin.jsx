@@ -3,7 +3,7 @@ import { Layout, Button, Modal } from "antd";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { Bell, EcomplainzWhite, ImageAdmin } from "../../assets";
-import "./layoutComponentAdmin.css";
+import styles from "./layoutComponenAdmin.module.css";
 import Gap from "../gap/Gap";
 import {
   ControlOutlined,
@@ -22,56 +22,65 @@ const LayoutComponentAdmin = ({ children }) => {
 
   return (
     <>
-      <Layout>
-        <Sider width="260" className="sidebarContainer">
-          <div className="sidebarMenu">
+      <Layout
+        style={{
+          minHeight: "100vh",
+        }}
+        className={styles.Layout}
+      >
+        <Sider width="260" className={styles.sidebar}>
+          <div className={styles.menu}>
             <Gap height={1} />
 
             <div>
-              <img src={EcomplainzWhite} alt="EcomplainzWhite" height={45} />
+              <img src={EcomplainzWhite} alt="  EcomplainzWhite" height={45} />
             </div>
-            <Gap height={20} />
+            <Gap height={40} />
 
-            <Link to={"/dashboard"} className="linkIcon">
+            <Link to={"/dashboard"} className={styles.icon}>
               <FundOutlined />
               <p>Dashboard</p>
             </Link>
-            <Link to={"/laporan/All"} className="linkIcon">
+
+            <Link to={"/laporan/All"} className={styles.icon}>
               <ContainerOutlined />
               <p>Laporan</p>
             </Link>
-            <Link to={"/berita"} className="linkIcon">
+            <Link to={"/berita"} className={styles.icon}>
               <ReadOutlined />
               <p>Berita</p>
             </Link>
-            <Link to={"/tambahadmin"} className="linkIcon">
+            <Link to={"/tambahadmin"} className={styles.icon}>
               <UsergroupAddOutlined />
               <p>Tambah Admin</p>
             </Link>
-            <Link to={"/pengaturan"} className="linkIcon">
+            <Link to={"/pengaturan"} className={styles.icon}>
               <ControlOutlined />
               <p>Pengaturan</p>
             </Link>
-            <Gap height={350} />
+          </div>
 
-            <div className="sidebarLogout">
-              <Link to="/admin">
-                <Button
-                  type="primary"
-                  onClick={() => {
-                    Cookies.remove("token");
-                    navigate("/admin");
-                    window.location.reload();
-                  }}
-                  danger
-                >
-                  Logout
-                </Button>
-              </Link>
-            </div>
+          <div className={styles.logout}>
+            <Link to="/admin">
+              <Button
+                type="primary"
+                onClick={() => {
+                  Cookies.remove("token");
+                  navigate("/admin");
+                  window.location.reload();
+                }}
+                danger
+              >
+                Logout
+              </Button>
+            </Link>
           </div>
         </Sider>
-        <Content className="contentContainer">{children}</Content>
+
+        <Content className={styles.content} style={{ minHeight: 500 }}>
+          {children}
+        </Content>
+
         <Sider className="sidebarContainer2">
           <div className="sidebar2Menu">
             <Gap height={30} />
@@ -100,7 +109,7 @@ const LayoutComponentAdmin = ({ children }) => {
                 <p>some contents...</p>
               </Modal>
             </div>
-            <Gap height={95} />
+
             <div className="adminProfile">
               <img src={ImageAdmin} alt="Admin Picture" />
               <strong>Admin 1</strong>

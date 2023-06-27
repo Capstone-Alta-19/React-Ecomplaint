@@ -27,7 +27,6 @@ export const useGetBerita = () => {
 
   return [isLoading, data, getBerita];
 };
-
 export const usePostBerita = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState();
@@ -46,7 +45,7 @@ export const usePostBerita = () => {
       setIsLoading(false);
       message.open({
         type: "success",
-        content: "This is a success message",
+        content: "Berita berhasil ditambah",
       });
     }
   }, []);

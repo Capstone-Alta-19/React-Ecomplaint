@@ -40,7 +40,8 @@ const BeritaAdmin = () => {
             <List
               className={styles.list}
               pagination={{
-                pageSize: "10",
+                showSizeChanger: true,
+                pageSizeOptions: ["10", "20", "50", "100"],
               }}
               dataSource={dataBerita}
               renderItem={(item) => (
