@@ -71,7 +71,7 @@ export const useDeleteDashboard = () => {
       setIsLoading(false);
       message.open({
         type: "success",
-        content: "berhasil hilang",
+        content: "Berhasil dihapus",
       });
     }
   }, []);

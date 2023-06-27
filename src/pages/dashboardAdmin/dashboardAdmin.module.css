@@ -1,0 +1,103 @@
+.layout {
+  display: flex;
+  margin: 5rem 5rem;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.container {
+  border-radius: 20px;
+}
+
+.button {
+  border-color: #3c486b;
+  background-color: #f0f0f0;
+  color: #3c486b;
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0px 0px 10px 15px;
+}
+
+.button2 {
+  border-color: #3c486b;
+  background-color: #f0f0f0;
+  color: #3c486b;
+  font-size: 14px;
+  font-weight: 700;
+  margin-left: 18vh;
+  margin-bottom: 20px;
+}
+
+.cardShadow {
+  background-color: #f0f0f0;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+}
+
+.cardShadow p {
+  padding-left: 15px;
+}
+
+.cardShadow span {
+  padding-left: 15px;
+  font-size: 11px;
+}
+
+.status {
+  background-color: yellow;
+  color: #000000;
+  margin-left: 4px;
+  text-align: start;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.status2 {
+  border-color: #43d200;
+  background-color: #f0f0f0;
+  color: #000000;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.statusAspirasi {
+  background-color: #a189ff;
+  color: #3c486b;
+  margin-left: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.judul {
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  color: #3c486b;
+}
+
+.komplain {
+  font-size: 12px;
+  color: #3c486b;
+  font-family: "Poppins", sans-serif;
+}
+
+.recent {
+  font-size: 16px;
+  color: #3c486b;
+  font-family: "Poppins", sans-serif;
+}
+
+.status1 {
+  background-color: yellow;
+  color: #000000;
+  margin-left: 4px;
+  text-align: start;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.statusText {
+  padding: 0px !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}

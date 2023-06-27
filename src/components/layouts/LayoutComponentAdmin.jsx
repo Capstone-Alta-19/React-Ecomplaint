@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Layout, Button, Modal } from "antd";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -13,12 +13,14 @@ import {
   FundOutlined,
 } from "@ant-design/icons";
 import Cookies from "js-cookie";
+import { useGetNotif } from "./hooks/useNotif";
 
 const LayoutComponentAdmin = ({ children }) => {
   const { Content, Sider } = Layout;
   const navigate = useNavigate();
-
   const [open, setOpen] = useState(false);
+
+  const [isLoading, data, getNotif] = useGetNotif();
 
   return (
     <>
@@ -28,7 +30,14 @@ const LayoutComponentAdmin = ({ children }) => {
         }}
         className={styles.Layout}
       >
-        <Sider width="260" className={styles.sidebar}>
+        <Sider
+          style={{
+            height: "100vh",
+            position: "fixed",
+          }}
+          width="260"
+          className={styles.sidebar}
+        >
           <div className={styles.menu}>
             <Gap height={1} />
 
@@ -77,44 +86,46 @@ const LayoutComponentAdmin = ({ children }) => {
           </div>
         </Sider>
 
-        <Content className={styles.content} style={{ minHeight: 500 }}>
-          {children}
-        </Content>
+        <Content className={styles.conten}>{children}</Content>
 
-        <Sider className="sidebarContainer2">
-          <div className="sidebar2Menu">
-            <Gap height={30} />
-            <div>
-              <Button onClick={() => setOpen(true)}>
-                <img src={Bell} alt="Bell Notif" height={30} />
-              </Button>
-              <Modal
-                centered
-                open={open}
-                onOk={() => setOpen(false)}
-                onCancel={() => setOpen(false)}
-                width={2000}
-              >
-                <p className="notifikasiTitle"> &lt; Notifikasi</p>
-                <Gap height={30} />
+        <Sider className={styles.sidebar2}>
+          <Gap height={30} />
+          <div className={styles.adminbar}>
+            <Button
+              onClick={() => {
+                getNotif(() => setOpen(true));
+              }}
+            >
+              <img src={Bell} alt="Bell Notif" height={30} />
+            </Button>
+            <Gap height={100} />
+            <Modal
+              centered
+              open={open}
+              onOk={() => setOpen(false)}
+              onCancel={() => setOpen(false)}
+              width={2000}
+            >
+              <p className={styles.notif}> &lt; Notifikasi</p>
+              <Gap height={30} />
+              <div className={styles.box}>
+                {data?.map((item, index) => (
+                  <div key={index} className={styles.notif1}>
+                    <div style={{ fontWeight: "bold" }}>{item.category}</div>
+                    <div className={styles.dateNotif}>
+                      <div>{item.description}</div>
+                      <div>{item.created_at}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </Modal>
+          </div>
 
-                <p>some contents...</p>
-                <p>some contents...</p>
-                <p>some contents...</p>
-                <p>some contents...</p>
-                <p>some contents...</p>
-                <p>some contents...</p>
-                <p>some contents...</p>
-                <p>some contents...</p>
-                <p>some contents...</p>
-              </Modal>
-            </div>
-
-            <div className="adminProfile">
-              <img src={ImageAdmin} alt="Admin Picture" />
-              <strong>Admin 1</strong>
-              <p>Super Admin</p>
-            </div>
+          <div className={styles.menu}>
+            <img src={ImageAdmin} alt="Admin Picture" height={150} />
+            <strong>Admin 1</strong>
+            <p>Super Admin</p>
           </div>
         </Sider>
       </Layout>

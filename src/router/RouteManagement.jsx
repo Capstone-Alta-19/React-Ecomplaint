@@ -10,11 +10,10 @@ import BeritaAdmin from "../pages/beritaAdmin/BeritaAdmin";
 import TambahAdmin from "../pages/tambahAdmin/TambahAdmin";
 import PengaturanAdmin from "../pages/pengaturanAdmin/PengaturanAdmin";
 import HomePageBantuan from "../pages/homePageBantuan/HomePageBantuan";
-
 import DetailKomplain from "../pages/detailComplaint/detailKomplain";
 import TambahBerita from "../pages/beritaAdmin/tambahBerita/TambahBerita";
-
 import Cookies from "js-cookie";
+import FooterComponent from "../pages/homePage/footerComponent/FooterComponent";
 
 const RouteManagement = () => {
   const token = Cookies.get("token");
@@ -27,6 +26,7 @@ const RouteManagement = () => {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/homepagebantuan" element={<HomePageBantuan />} />
+            <Route path="/aboutus" element={<FooterComponent />} />
           </Routes>
         ) : !token ? (
           <Routes>

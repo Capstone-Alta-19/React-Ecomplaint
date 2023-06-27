@@ -1,26 +1,19 @@
 import {
   Button,
-  Card,
   Col,
-  Dropdown,
   Form,
   Input,
   Modal,
-  Radio,
   Row,
   Select,
   Space,
   Table,
   Tag,
 } from "antd";
-
 import { SearchOutlined } from "@ant-design/icons";
-
 import React, { useEffect, useState } from "react";
 import "./style.css";
-import Search from "antd/es/input/Search";
 import { back } from "../../assets";
-
 import {
   useDeleteDashboard,
   useGetCSV,
@@ -29,8 +22,7 @@ import {
 } from "./hooks/useDashboard";
 import { Link, useParams } from "react-router-dom";
 import { INITIAL_TABLE_DATA } from "./constants";
-import CheckableTag from "antd/es/tag/CheckableTag";
-import { CSVDownload, CSVLink } from "react-csv";
+import { CSVLink } from "react-csv";
 
 const DetailKomplain = () => {
   const [sort, setSort] = useState("desc");
@@ -38,15 +30,15 @@ const DetailKomplain = () => {
   const [rowData, setRowData] = useState();
   const [formBio] = Form.useForm();
 
-  const [limit, setlimit] = useState("100");
+  const [limit] = useState("100");
   const { type } = useParams();
-  const [isLoadingCSVData, dataCSV, getCSVData] = useGetCSV();
-  const [isLoadingUpdateData, updateDashboardData] = useUpdateDashboard();
-  const [isLoadingDeleteData, deleteDashboardData] = useDeleteDashboard();
-  const [isLoadingData, dashboardData, getDashboardData] = useGetDashboard();
-  const [isLoadingDeta, dashboardDeta, getDashboardUtils] = useGetDashboard();
+  const [, dataCSV, getCSVData] = useGetCSV();
+  const [, updateDashboardData] = useUpdateDashboard();
+  const [, deleteDashboardData] = useDeleteDashboard();
+  const [, dashboardData, getDashboardData] = useGetDashboard();
+  const [, ,] = useGetDashboard();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedLaporan, setSelectedLaporan] = useState(null);
+  const [,] = useState(null);
 
   const TABLE_COLUMNS = [
     {
@@ -192,11 +184,11 @@ const DetailKomplain = () => {
               options={[
                 {
                   value: "desc",
-                  label: "descending",
+                  label: "Descending",
                 },
                 {
                   value: "asc",
-                  label: "ascending",
+                  label: "Ascending",
                 },
               ]}
               onChange={(value) => {
@@ -217,7 +209,7 @@ const DetailKomplain = () => {
         <br></br>
         <Table
           className="table-one"
-          rowKey={dashboardData?.complaints.id}
+          rowKey="id"
           key={dashboardData?.complaints.id}
           dataSource={dashboardData?.complaints}
           columns={TABLE_COLUMNS}

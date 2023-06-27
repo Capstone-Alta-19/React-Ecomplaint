@@ -9,7 +9,6 @@ export const useGetBerita = () => {
   const getBerita = useCallback(async () => {
     try {
       const res = await api.newsGet();
-      console.log(res);
       setData(res.data.News);
     } catch (err) {
       message.open({
@@ -18,10 +17,6 @@ export const useGetBerita = () => {
       });
     } finally {
       setIsLoading(false);
-      message.open({
-        type: "success",
-        content: "This is a success message",
-      });
     }
   }, []);
 
@@ -34,7 +29,6 @@ export const usePostBerita = () => {
   const addBerita = useCallback(async (body) => {
     try {
       const res = await api.postBerita(body);
-      console.log(res);
       setData(res.data.News);
     } catch (err) {
       message.open({
