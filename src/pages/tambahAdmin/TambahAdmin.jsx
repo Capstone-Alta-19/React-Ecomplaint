@@ -1,19 +1,16 @@
-import React, { useEffect, useState } from "react";
-import "./tambahAdmin.css";
 import { Button, Form, Input, Radio } from "antd";
 import { User } from "../../assets";
 import Gap from "../../components/gap/Gap";
-import { Row, Col } from "antd";
 import { usePostAdmin } from "./hooks/useTambahAdmin";
 import { useGetAdmin } from "../pengaturanAdmin/hooks/usePengaturanAdmin";
+import style from "./tambahAdmin.module.css";
 
 const TambahAdmin = () => {
-  const [isLoading, data, getAdmin] = useGetAdmin();
-  const [isLoadingCreateBiodata, createAdmin] = usePostAdmin();
   const [form] = Form.useForm();
+  const [isLoading, , getAdmin] = useGetAdmin();
+  const [isLoadingCreateBiodata, createAdmin] = usePostAdmin();
 
   const onAdd = (values) => {
-    console.log(values);
     createAdmin(values, () => {
       getAdmin();
       form.resetFields();
@@ -22,76 +19,112 @@ const TambahAdmin = () => {
 
   return (
     <>
-      <div className="container-judul">
-        <div>
-          <Row className="judulteks">
-            <Col span={3}>
-              <img src={User} />
-            </Col>
-            <Col span={10}>
-              <div className="coladmin">Tambah Admin</div>
-            </Col>
-          </Row>
-        </div>
+      <div className={style.layout}>
+        <div className={style.container}>
+          <div className={style.tambahAdmin}>
+            <img src={User} />
+            <p>Tambah Admin</p>
+          </div>
 
-        <Gap height={50} />
-        <Form
-          autoComplete="off"
-          form={form}
-          className="formtambahAdmin"
-          layout="horizontal"
-          onFinish={onAdd}
-          name="basic"
-          colon={false}
-          style={{
-            width: "600px",
-          }}
-          labelAlign="left"
-          labelCol={{
-            span: 12,
-          }}
-          wrapperCol={{
-            span: 14,
-          }}
-        >
-          <Form.Item label="Input Name" name="name">
-            <Input placeholder="input Name" />
-          </Form.Item>
-
-          <Form.Item label="Role" name="role">
-            <Radio.Group>
-              <Radio value="Admin">Admin</Radio>
-            </Radio.Group>
-          </Form.Item>
-
-          <Form.Item label="Input user name" name="username">
-            <Input placeholder="Input User name" />
-          </Form.Item>
-
-          <Form.Item label="Input Password" name="password">
-            <Input.Password placeholder="Input Password" />
-          </Form.Item>
-
-          <Form.Item
+          <Gap height={60} />
+          <Form
+            autoComplete="off"
+            form={form}
+            layout="horizontal"
+            onFinish={onAdd}
+            name="basic"
+            colon={false}
+            style={{
+              width: "800px",
+            }}
+            labelAlign="left"
+            labelCol={{
+              span: 8,
+            }}
             wrapperCol={{
-              offset: 5,
               span: 14,
             }}
           >
-            <Button
-              type="primary"
-              htmlType="submit"
-              direction="vertical"
-              className="buttonTambahAdmin"
-              style={{
-                width: "100%",
-                backgroundColor: "#3C486B",
+            <Form.Item
+              label="Input Name"
+              name="name"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input your name!",
+                },
+                { min: 6 },
+              ]}
+            >
+              <Input placeholder="Input Name" />
+            </Form.Item>
+
+            <Form.Item
+              label="Role"
+              name="role"
+              rules={[
+                {
+                  required: true,
+                  message: "Please select your role!",
+                },
+              ]}
+            >
+              <Radio.Group>
+                <Radio value="Admin">Admin</Radio>
+              </Radio.Group>
+            </Form.Item>
+
+            <Form.Item
+              label="Input User Name"
+              name="username"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input your username!",
+                },
+                { min: 6 },
+              ]}
+            >
+              <Input placeholder="Input User name" />
+            </Form.Item>
+
+            <Form.Item
+              label="Input Password"
+              name="password"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input your password!",
+                },
+                { min: 6 },
+              ]}
+            >
+              <Input.Password placeholder="Input Password" />
+            </Form.Item>
+
+            <Gap height={30} />
+            <Form.Item
+              wrapperCol={{
+                offset: 7,
+                span: 14,
               }}
             >
-              SIMPAN
-            </Button>
-          </Form.Item>
-        </Form>
+              <Button
+                type="primary"
+                htmlType="submit"
+                direction="vertical"
+                className="buttonTambahAdmin"
+                loading={isLoadingCreateBiodata}
+                style={{
+                  width: "75%",
+                  backgroundColor: "#3C486B",
+                }}
+              >
+                SIMPAN
+              </Button>
+            </Form.Item>
+          </Form>
+        </div>
       </div>
     </>
   );

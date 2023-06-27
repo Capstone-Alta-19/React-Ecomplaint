@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import "./headerComponent.css";
 import { EComplain } from "../../../assets";
-import { Select } from "antd";
-import { Col, Row } from "antd";
+import { Select, Col, Row, Modal, Button } from "antd";
 import { Link } from "react-router-dom";
 
 const HeaderComponent = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
   return (
     <>
       <div className="headerLayout">
@@ -23,11 +33,13 @@ const HeaderComponent = () => {
               <Link to="/homepagebantuan">
                 <p>Bantuan</p>
               </Link>
-              <Link to="#">
+              <Link to="/aboutus">
                 <p>About Us</p>
               </Link>
+
               <Select
                 placeholder="Pilih Bahasa"
+                onChange={showModal}
                 bordered={false}
                 options={[
                   {
@@ -40,6 +52,16 @@ const HeaderComponent = () => {
                   },
                 ]}
               />
+              <div>
+                <Modal
+                  open={isModalOpen}
+                  onOk={handleOk}
+                  onCancel={handleCancel}
+                  width={1000}
+                >
+                  <h1 style={{ fontSize: "4rem" }}>On Construction</h1>
+                </Modal>
+              </div>
             </div>
           </Col>
         </Row>

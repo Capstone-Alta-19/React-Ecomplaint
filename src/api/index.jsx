@@ -1,4 +1,4 @@
-import { baseAPI, newBaseAPI} from "../config/apiService";
+import { baseAPI, newBaseAPI } from "../config/apiService";
 
 export const api = {
   //API
@@ -49,14 +49,16 @@ export const api = {
     return newBaseAPI.get(`/dashboard/admin`);
   },
   postBerita: (body) => {
-    return baseAPI.post(`/dashboard/news`,body)
+    return baseAPI.post(`/dashboard/news`, body);
   },
   uploader: (body) => {
     return newBaseAPI.post("/upload", body, {
       headers: {
         "Content-Type": "multipart/form-data",
-      }
+      },
     });
   },
-
+  getNotif: () => {
+    return newBaseAPI.get(`/dashboard/notification`);
+  },
 };

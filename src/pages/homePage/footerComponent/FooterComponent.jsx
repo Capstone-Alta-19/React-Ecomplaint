@@ -3,6 +3,7 @@ import { Col, Row } from "antd";
 import Gap from "../../../components/gap/Gap";
 import { EcomplainzWhite, GmailIcon, WAIcon } from "../../../assets/index";
 import "./footerCoponent.css";
+import { Link } from "react-router-dom";
 
 const FooterComponent = () => {
   return (
@@ -11,7 +12,9 @@ const FooterComponent = () => {
 
       <Row className="rowFooter">
         <Col className="col1-footer">
-          <img src={EcomplainzWhite} alt="Logo Ecomplainz" width={350} />
+          <Link to={"/"}>
+            <img src={EcomplainzWhite} alt="Logo Ecomplainz" width={350} />
+          </Link>
           <Gap height={50} />
 
           <p className="footer-desc">

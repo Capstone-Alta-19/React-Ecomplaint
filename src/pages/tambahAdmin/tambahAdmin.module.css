@@ -1,0 +1,38 @@
+@font-face {
+  font-family: Poppins;
+  src: url(../../assets/font/Poppins-Regular.ttf);
+}
+
+@font-face {
+  font-family: PoppinsBold;
+  src: url(../../assets/font/Poppins-Bold.ttf);
+}
+
+.layout {
+  display: flex;
+  width: 50%;
+  margin: 5rem 5rem;
+  border-radius: 30px;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.container {
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+  background-color: white;
+  color: #3c486b;
+}
+
+.tambahAdmin {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.tambahAdmin > p {
+  font-size: 2rem;
+  font-family: PoppinsBold;
+  margin-top: 20px;
+}

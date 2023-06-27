@@ -1,26 +1,20 @@
 import React, { useEffect, useState } from "react";
-import "./pengaturanAdmin.css";
 import { Button, Form, Input } from "antd";
 import { UseUpdateAdmin, useGetAdmin } from "./hooks/usePengaturanAdmin";
 import Gap from "../../components/gap/Gap";
-// import { useParams } from "react-router-dom";
+import styles from "./pengaturanAdmin.module.css";
+import LoadingComponent from "../../components/loadingComponent/LoadingComponent";
 
 const PengaturanAdmin = () => {
+  const [form] = Form.useForm();
   const [isLoading, data, getAdmin] = useGetAdmin();
   const [isLoadingUpdateAdmin, updateAdmin] = UseUpdateAdmin();
-
-  const [body, rowData, setRowData] = useState();
-  // console.log(data);
-
-  const isEdit = (values) => {
-    console.log({ values });
-  };
+  const isEdit = (values) => {};
 
   const onEdit = (values) => {
-    // const id = rowData.id;
-    console.log(values);
     updateAdmin(values, () => {
       getAdmin();
+      form.resetFields();
     });
   };
 
@@ -30,124 +24,132 @@ const PengaturanAdmin = () => {
 
   return (
     <>
-      <div className="container-center">
-        <Gap height={30} />
-        <Form
-          className="formpengaturanadmin"
-          autoComplete="off"
-          layout="horizontal"
-          onFinish={isEdit ? onEdit : onAdd}
-          name="basic"
-          colon={false}
-          style={{
-            width: "807px",
-            height: "500px",
-          }}
-          labelAlign="left"
-          labelCol={{
-            span: 12,
-          }}
-          wrapperCol={{
-            span: 14,
-          }}
-          // initialValues={{ namepengaturan: data?.admin.name }}
-          fields={[
-            {
-              name: ["name"],
-              value: data?.admin.name,
-            },
-            {
-              name: ["username"],
-              value: data?.admin.username,
-            },
-          ]}
-        >
-          <Form.Item
-            label="Nama"
-            name="name"
-            rules={[
-              {
-                required: true,
-                message: "Please input your Nama!",
-              },
-            ]}
-          >
-            <Input />
-          </Form.Item>
-
-          <Form.Item
-            label="Username"
-            name="username"
-            rules={[
-              {
-                required: true,
-                message: "Please input your username!",
-              },
-            ]}
-          >
-            <Input />
-          </Form.Item>
-
-          <div className="gantipasswd">Ganti Password</div>
-          <Gap height={15} />
-          <Form.Item
-            label="Password Lama"
-            name="old_password"
-            rules={[
-              {
-                required: true,
-                message: "Please input your password lama!",
-              },
-            ]}
-          >
-            <Input.Password />
-          </Form.Item>
-          <Form.Item
-            label="Password Baru"
-            name="new_password"
-            rules={[
-              {
-                required: true,
-                message: "Please input your password baru!",
-              },
-            ]}
-          >
-            <Input.Password />
-          </Form.Item>
-          <Form.Item
-            label="Konfirmasi Password Baru"
-            name="confirm_password"
-            rules={[
-              {
-                required: true,
-                message: "Please input your password baru!",
-              },
-            ]}
-          >
-            <Input.Password />
-          </Form.Item>
-          <Gap height={30} />
-          <Form.Item
+      {isLoading ? (
+        <LoadingComponent />
+      ) : (
+        <div className={styles.pengaturan}>
+          <Form
+            form={form}
+            className={styles.form}
+            autoComplete="off"
+            layout="horizontal"
+            onFinish={isEdit ? onEdit : onAdd}
+            name="basic"
+            colon={false}
+            style={{
+              width: "800px",
+            }}
+            labelAlign="left"
+            labelCol={{
+              span: 8,
+            }}
             wrapperCol={{
-              offset: 7,
               span: 14,
             }}
+            fields={[
+              {
+                name: ["name"],
+                value: data?.admin.name,
+              },
+              {
+                name: ["username"],
+                value: data?.admin.username,
+              },
+            ]}
           >
-            <Button
-              type="primary"
-              htmlType="submit"
-              direction="vertical"
-              // loading={isLoadingUpdateAdmin}
-              style={{
-                width: "80%",
-                backgroundColor: "#3C486B",
+            <Form.Item
+              label="Nama"
+              name="name"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input your nama!",
+                },
+              ]}
+            >
+              <Input />
+            </Form.Item>
+
+            <Form.Item
+              label="Username"
+              name="username"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input your username!",
+                },
+              ]}
+            >
+              <Input />
+            </Form.Item>
+
+            <Gap height={15} />
+            <div className={styles.password}>Ganti Password</div>
+            <Gap height={30} />
+
+            <Form.Item
+              label="Password Lama"
+              name="old_password"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input your password lama!",
+                },
+              ]}
+            >
+              <Input.Password />
+            </Form.Item>
+
+            <Form.Item
+              label="Password Baru"
+              name="new_password"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input your password baru!",
+                },
+                { min: 7 },
+              ]}
+            >
+              <Input.Password />
+            </Form.Item>
+            <Form.Item
+              label="Konfirmasi Password Baru"
+              name="confirm_password"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input your password baru!",
+                },
+                { min: 7 },
+              ]}
+            >
+              <Input.Password />
+            </Form.Item>
+
+            <Gap height={30} />
+            <Form.Item
+              wrapperCol={{
+                offset: 7,
+                span: 14,
               }}
             >
-              SIMPAN
-            </Button>
-          </Form.Item>
-        </Form>
-      </div>
+              <Button
+                type="primary"
+                htmlType="submit"
+                direction="vertical"
+                loading={isLoadingUpdateAdmin}
+                style={{
+                  width: "75%",
+                  backgroundColor: "#3C486B",
+                }}
+              >
+                SIMPAN
+              </Button>
+            </Form.Item>
+          </Form>
+        </div>
+      )}
     </>
   );
 };
