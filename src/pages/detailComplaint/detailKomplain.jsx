@@ -137,6 +137,7 @@ const DetailKomplain = () => {
     const page = "1";
 
     updateDashboardData(id, values, () => {
+      getDashboardData(sort, type, search, page, limit);
       handleCancel();
     });
   };

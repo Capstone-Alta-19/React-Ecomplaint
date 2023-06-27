@@ -29,7 +29,8 @@ const TambahBerita = () => {
   const [avatar, setAvatar] = useState(fileURLData);
 
   const postBerita = (body) => {
-    console.log(fileURLData);
+    
+  
     const value = {
       news_name: body.news_name,
       photo_url: fileURLData,
@@ -45,6 +46,7 @@ const TambahBerita = () => {
   const [files, setFiles] = useState({});
   const handleUpload = async (file) => {
     await uploadFile(file.file.originFileObj);
+ 
   };
 
   console.log(avatar);
@@ -68,14 +70,7 @@ const TambahBerita = () => {
           span: 6,
         }}
         colon={false}
-        fields={[
-          {
-            name: "status",
-          },
-          {
-            name: "type",
-          },
-        ]}
+        
         encType="multipart/form-data"
       >
         <Form.Item
@@ -119,7 +114,7 @@ const TambahBerita = () => {
         </Form.Item>
         <Form.Item name="photo_url" label="Add File">
           {fileURLData ? (
-            <img src={fileURLData} />
+            <img src={fileURLData} width="20%" height="20%"/>
           ) : (
             <Upload
               showUploadList={false}
